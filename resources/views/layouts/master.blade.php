@@ -34,6 +34,35 @@
   <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
+  <style>
+    .loading {
+	z-index: 20;
+	position: absolute;
+	top: 0;
+	left:-5px;
+	width: 100%;
+	height: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+.loading-content {
+	position: absolute;
+	border: 16px solid #f3f3f3; /* Light grey */
+	border-top: 16px solid #3498db; /* Blue */
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	top: 40%;
+	left:35%;
+	animation: spin 2s linear infinite;
+	}
+	
+	@keyframes spin {
+		0% { transform: rotate(0deg); }
+		100% { transform: rotate(360deg); }
+	}
+
+
+  </style>
 </head>
 
 <body class="">
@@ -44,13 +73,13 @@
             <img src="../assets/img/logo.png" alt="" srcset="">
         </a>
         <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Creative Tim
+          BAWASA
         </a>
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
-          <li>
-            <a href="./dashboard.html">
+          <li class="{{ 'dashboard' == request()->path() ? 'active' : ''}}">
+            <a href="./dashboard">
               <i class="now-ui-icons design_app"></i>
               <p>Dashboard</p>
             </a>
@@ -73,22 +102,22 @@
               <p>Notifications</p>
             </a>
           </li>
-          <li>
-            <a href="./user.html">
+          <li class="{{ 'user' == request()->path() ? 'active' : ''}}">
+            <a href="./user">
               <i class="now-ui-icons users_single-02"></i>
-              <p>User Profile</p>
+              <p>User Acounts</p>
             </a>
           </li>
-          <li class="active ">
-            <a href="./tables.html">
+          <li class="{{ 'events' == request()->path() ? 'active':''}}">
+            <a href="./events">
               <i class="now-ui-icons design_bullet-list-67"></i>
-              <p>Table List</p>
+              <p>Events</p>
             </a>
           </li>
-          <li>
-            <a href="./typography.html">
+          <li class="{{ 'anouncement' == request()->path() ? 'active' : ''}}">
+            <a href="./anouncement">
               <i class="now-ui-icons text_caps-small"></i>
-              <p>Typography</p>
+              <p>Anouncement</p>
             </a>
           </li>
           <li class="active-pro">
@@ -112,7 +141,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#pablo">Table List</a>
+            <a class="navbar-brand" href="./dashboard">Dashboard</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -168,7 +197,9 @@
       <div class="panel-header panel-header-sm">
       </div>
       <div class="content">
+        
         @yield('content')
+        @include('sweetalert::alert')
       </div>
       <footer class="footer">
         <div class=" container-fluid ">
@@ -214,7 +245,18 @@
   <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
   <script src="../assets/demo/demo.js"></script>
+  <script>
+    // Show the progress bar
+    function showProgressBar() {
+    $('#progress-bar').show();
+  }
 
+  // Hide the progress bar
+  function hideProgressBar() {
+    $('#progress-bar').hide();
+  }
+  </script>
+     
     @yield('scripts')
 </body>
 

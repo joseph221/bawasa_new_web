@@ -25,4 +25,6 @@
         </div>
     </div>
 </div>
+@section('scripts')
+@endsection
 @endsection

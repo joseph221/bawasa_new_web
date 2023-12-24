@@ -7,12 +7,12 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
+    <title>{{ config('app.name') }}</title>
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Scripts -->
     
 </head>
@@ -57,7 +57,7 @@
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                         document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -76,5 +76,13 @@
             @yield('content')
         </main>
     </div>
+    
+     <!--   Core JS Files   -->
+    <script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
+    <script src="{{ asset('assets/js/core/popper.min.js')}}"></script>
+    <script src="{{asset('assets/js/core/bootstrap.min.js')}}"></script>
+    <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+
+    @yield('scripts')
 </body>
 </html>
