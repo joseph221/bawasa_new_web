@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\admin_controller;
 use App\Http\Controllers\admin\Anouncement_controller;
 use App\Http\Controllers\admin\Event_controller;
+use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\WebpageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,15 +18,48 @@ use App\Http\Controllers\admin\Event_controller;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [WebpageController::class,'index']);
+Route::get('/background', [WebpageController::class,'background']);
+Route::get('/board', [WebpageController::class,'board']);
+Route::get('/menagement', [WebpageController::class,'management']);
+Route::get('/mission', [WebpageController::class,'mission']);
+Route::get('/orgStru', [WebpageController::class,'orgStru']);
+Route::get('/babati', [WebpageController::class,'babati']);
+Route::get('/bashnet', [WebpageController::class,'bashnet']);
+Route::get('/dareda', [WebpageController::class,'dareda']);
+Route::get('/gallapo', [WebpageController::class,'gallapo']);
+Route::get('/kateshi', [WebpageController::class,'kateshi']);
+Route::get('/magugu', [WebpageController::class,'magugu']);
+Route::get('/contact_us', [WebpageController::class,'contact_us']);
+Route::get('/faqs', [WebpageController::class,'faqs']);
+Route::get('/photo', [WebpageController::class,'photo']);
+Route::get('/video', [WebpageController::class,'video']);
+Route::get('/press', [WebpageController::class,'press']);
+Route::get('/speech', [WebpageController::class,'speech']);
+Route::get('/current', [WebpageController::class,'current']);
+Route::get('/excuted', [WebpageController::class,'excuted']);
+Route::get('/planned', [WebpageController::class,'planned']);
+Route::get('/acts', [WebpageController::class,'acts']);
+Route::get('/flyers', [WebpageController::class,'flyers']);
+Route::get('/guidlines', [WebpageController::class,'guidlines']);
+Route::get('/newsletters', [WebpageController::class,'newsletters']);
+Route::get('/polices', [WebpageController::class,'polices']);
+Route::get('/regulation', [WebpageController::class,'regulation']);
+Route::get('/requestservice', [WebpageController::class,'requestservice']);
+Route::get('/clean_water', [WebpageController::class,'clean_water']);
+Route::get('/sanitation', [WebpageController::class,'sanitation']);
+Route::get('/tenders', [WebpageController::class,'tenders']);
+Route::get('/vacancies', [WebpageController::class,'vacancies']);
+
+
 
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
 });
 
 Auth::routes();
+
+Route::get('/lang/{lang}' , [App\Http\Controllers\LanguageController::class, 'switchLang'])->name('lang.switch');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -40,5 +75,8 @@ Route::post('/update_anouncement/{id}',[Anouncement_controller::class,'update'])
 Route::delete('/delete_anouncement/{id}',[Anouncement_controller::class,'destroy']);
 
 Route::get('/events',[Event_controller::class,'index']);
+Route::post('/add_event',[Event_controller::class,'store']);
+Route::put('/update_event/{id}',[Event_controller::class,'update']);
+Route::delete('/event_delete/{id}',[Event_controller::class,'destroy']);
 
 

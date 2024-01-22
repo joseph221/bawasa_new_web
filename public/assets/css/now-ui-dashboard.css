@@ -1298,25 +1298,25 @@ fieldset[disabled] .btn-link.active {
 }
 
 .form-control::-moz-placeholder {
-  color: #888;
+  color: #000000;
   opacity: 1;
   filter: alpha(opacity=100);
 }
 
 .form-control:-moz-placeholder {
-  color: #888;
+  color: #000000;
   opacity: 1;
   filter: alpha(opacity=100);
 }
 
 .form-control::-webkit-input-placeholder {
-  color: #888;
+  color: #000000;
   opacity: 1;
   filter: alpha(opacity=100);
 }
 
 .form-control:-ms-input-placeholder {
-  color: #888;
+  color: #000000;
   opacity: 1;
   filter: alpha(opacity=100);
 }
@@ -1402,7 +1402,7 @@ fieldset[disabled] .btn-link.active {
   border-color: #1be611;
 }
 
-.has-danger .form-control,
+/* .has-danger .form-control,
 .has-danger .input-group-append .input-group-text,
 .has-danger .input-group-prepend .input-group-text,
 .has-danger.input-group-focus .input-group-prepend .input-group-text,
@@ -1410,15 +1410,15 @@ fieldset[disabled] .btn-link.active {
   border-color: #ffcfcf;
   color: #FF3636;
   background-color: rgba(222, 222, 222, 0.1);
-}
+} */
 
-.has-danger .form-control:focus,
+/* .has-danger .form-control:focus,
 .has-danger .input-group-append .input-group-text:focus,
 .has-danger .input-group-prepend .input-group-text:focus,
 .has-danger.input-group-focus .input-group-prepend .input-group-text:focus,
 .has-danger.input-group-focus .input-group-append .input-group-text:focus {
   background-color: #FFFFFF;
-}
+} */
 
 .has-success:after,
 .has-danger:after {
@@ -1783,7 +1783,7 @@ textarea.form-control:active {
   padding: 0 12px;
 }
 
-.form-group input[type=file] {
+/* .form-group input[type=file] {
   opacity: 0;
   position: absolute;
   top: 0;
@@ -1793,7 +1793,7 @@ textarea.form-control:active {
   width: 100%;
   height: 100%;
   z-index: 100;
-}
+} */
 
 .form-text {
   font-size: 0.8571em;

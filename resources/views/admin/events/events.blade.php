@@ -1,5 +1,6 @@
 @extends('layouts.master')
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
 @section('title')
     Bawasa | Events
 @endsection
@@ -16,27 +17,56 @@
         </button>
       </div>
       <div class="modal-body">
-        <form id="edit" action="" methode="post">
+      <form id="add" action="/add_event"  method="post" enctype="multipart/form-data" autocomplete="off">
+
+        @if ( Session::get('success'))
+                        <div class="alert alert-success">
+                            {{ Session::get('success') }}
+                        </div>
+                @endif
+                @if ( Session::get('error'))
+                        <div class="alert alert-danger">
+                            {{ Session::get('error') }}
+                        </div>
+                @endif
+
         @csrf
-        @method('post')
-          <div class="form-group">
-            <label for="date" class="col-form-label">Date To :</label>
-            <input type="date" class="form-control" value="{{ old('date') }}" id="date" name="date">
-          </div>
-          <div class="form-group">
-            <label for="desc" class="col-form-label">Description:</label>
-            <textarea class="form-control" id="desc" value="{{ old('desc') }}" name="desc"></textarea>
-          </div>
-          <div class="form-group">
-            <label for="imge" class="col-form-label">Image:</label>
-            <input type="file" class="form-control" id="" value="{{ old('imge') }}" name="imge" placeholder="Enter news Images" style="border:2px;">
-          </div>
-        </form>
+
+        <div class="form-group">
+        <label for="">Date</label>
+        <input type="date" class="form-control" value="{{ old('date') }}" id="" name="date">
+        @error('name')
+                <span class="invalid-feedback text-danger" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+        <div class="form-group">
+        <label for="">Images</label>
+        <input type="file" class="form-control" id="" value="{{ old('imge') }}" name="imge" placeholder="Enter news Images">
+        @error('image')
+                <span class="invalid-feedback text-danger" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+        <div class="form-group">
+        <label for="">Description</label>
+        <textarea name="desc" class="form-control" value="{{ old('desc') }}" id="" cols="30" rows="4"></textarea>
+        @error('desc')
+                <span class="invalid-feedback text-danger" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-info">Send</button>
+        </div>
+
+      </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-info" form="edit">Send</button>
-      </div>
+      
     </div>
   </div>
 </div>
@@ -71,12 +101,12 @@
                         @foreach( $events as $d )
                         
                             <tr>
-                                <td>{{ $d->title }}</td>
+                                <td><img src="{{ asset('uploads/'.$d->image) }}" alt="" srcset="" style="heigt:100px; width:100px;"></td>
                                 <td>{{ $d->date}}</td>
-                                <td>{{ $d->content}}</td>
+                                <td>{{ $d->desc}}</td>
                                 <td>
                                     <div class="btn btn-success" value="{{$d->id}}" data-toggle="modal" data-target="#editModal_{{$d->id}}">edit</div>
-                                    <div class="btn btn-danger" data-toggle="modal" data-target="#deleteModal_{{ $d->id }}">delete</div>
+                                    <a href="event_delete/{{ $d->id }}" class="btn btn-danger" data-confirm-delete="true">Delete</a>
                                 </td>
                               @include('admin.events.action')
 
@@ -85,6 +115,7 @@
                         @endforeach
                     </tbody>
                   </table>
+                  {{ $events->links() }}
                 </div>
               </div>
             </div>
@@ -92,6 +123,9 @@
           
         </div>
 @endsection
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 @section('scripts')
     
