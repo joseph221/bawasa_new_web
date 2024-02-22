@@ -1,6 +1,6 @@
 <?php
 
-    
+
 
 ?>
 <html>
@@ -8,14 +8,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @livewireStyles
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <title>{{ __('messages.Home')}} | BAWASA</title>
+    <link rel="stylesheet" href="./assets/css/normalize.css">
     <link rel="stylesheet" href="./assets/resourse/master.min.css">
     <link rel="stylesheet" href="./assets/fontawesome-free-5.15.4-web/css/fontawesome.min.css">
     <link rel="stylesheet" href="./assets/font-awesome-4.7.0/css/font-awesome.min.css">
+
+
     <script src="https://www.google.com/recaptcha/api.js"></script>
 </head>
 
-<body>
+<body wire:loading.class="opacity-50">
     <!-- header section -->
     <header style="background-image: url(./resourse/bg-image.png);">
         <div class="container">
@@ -31,7 +36,7 @@
                                 <a href="/lang/{{$lang}}" class="dropdown-item">{{$language}}</a>
                                 @endif
                             @endforeach
-                            
+
                         </div>
                     </li>
                     <li class="list-inline-item sm-hide">
@@ -69,7 +74,7 @@
             </div>
         </div>
         <div class="banner">
-            <div class="container-fluid">
+            <div class="container">
                 <div class=" d-flex justify-content-between align-items-center">
                     <div class="py-2  logo mx-auto">
                         <img src="assets/resourse/emblem.png" alt="emblem" class="img-fluid">
@@ -374,7 +379,7 @@
 
                 </ul>
                 <div class="text-center">Copyright ©<span id="copyrightDate">2019-2023</span>
-                    <a href="/#">BAWASA </a> All Rights Reserved.
+                    <a href="{{ route('login') }}">BAWASA </a> All Rights Reserved.
                     <br>
                     Imesanifiwa, Imetengenezwa, na <a href="#" target="_blank">?</a>
                 </div>
@@ -404,8 +409,8 @@ if (currentYear != startYear) {
 <script src="./assets/resourse/slick.min.js"></script>
 <script src="./assets/resourse/custom.min.js"></script>
 <script src="./assets/resourse/recaptcha__en.js"></script>
-
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+@livewireScripts
 <script>
 $('a.dropdown-item.dropdown-toggle').click(function() {
     const link = $(this).attr('href');

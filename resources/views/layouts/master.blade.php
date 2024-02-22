@@ -32,7 +32,7 @@
   <!-- CSS Files -->
   <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
-  
+
 </head>
 
 <body class="">
@@ -140,17 +140,54 @@
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="now-ui-icons location_world"></i>
-                  <p>
+                  <i class="now-ui-icons ui-1_bell-53"></i>
+                    <span class="badge-lg">{{ count(auth()->user()->unreadNotifications) }}</span>
+                  {{-- <p>
                     <span class="d-lg-none d-md-block">Some Actions</span>
-                  </p>
+                  </p> --}}
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Action</a>
+                    @foreach (auth()->user()->unreadNotifications as $notification )
+                        @include('admin.notifications.'.Str::snake(class_basename($notification->type)))
+                        {{-- <a class="dropdown-item" href="#">{{ Str::snake(class_basename($notification->type)) }}</a> --}}
+                    @endforeach
+                  {{-- <a class="dropdown-item" href="#">Action</a>
                   <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
+                  <a class="dropdown-item" href="#">Something else here</a> --}}
+
                 </div>
               </li>
+              @guest
+              @if (Route::has('login'))
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                  </li>
+              @endif
+
+              @if (Route::has('register'))
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                  </li>
+              @endif
+          @else
+              <li class="nav-item dropdown">
+                  <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                      {{ Auth::user()->name }}
+                  </a>
+
+                  <div class="dropdown-menu dropdown-menu-end" aria-labelledby="#navbarDropdown">
+                      <a class="dropdown-item" href="{{ route('logout') }}"
+                         onclick="event.preventDefault();
+                           document.getElementById('logout-form').submit();">
+                          {{ __('Logout') }}
+                      </a>
+
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                          @csrf
+                      </form>
+                  </div>
+              </li>
+          @endguest
               <li class="nav-item">
                 <a class="nav-link" href="#pablo">
                   <i class="now-ui-icons users_single-02"></i>
@@ -167,7 +204,7 @@
       <div class="panel-header panel-header-sm">
       </div>
       <div class="content">
-        
+
         @yield('content')
         @include('sweetalert::alert')
       </div>
@@ -226,7 +263,7 @@
     $('#progress-bar').hide();
   }
   </script>
-     
+
     @yield('scripts')
 </body>
 

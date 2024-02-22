@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class WebpageController extends Controller
 {
@@ -98,7 +100,7 @@ class WebpageController extends Controller
     public function requestservice(){
         return view('pages.requestSevice.request_service');
     }
-   // services 
+   // services
     public function clean_water(){
         return view('pages.services.clean_water');
     }

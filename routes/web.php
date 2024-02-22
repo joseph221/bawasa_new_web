@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\Anouncement_controller;
 use App\Http\Controllers\admin\Event_controller;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\WebpageController;
+use App\Http\Controllers\ContactUsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,9 @@ use App\Http\Controllers\WebpageController;
 */
 
 Route::get('/', [WebpageController::class,'index']);
+Route::get('/contact_mail', function () {
+    return view('mails.contactMail');
+});
 Route::get('/background', [WebpageController::class,'background']);
 Route::get('/board', [WebpageController::class,'board']);
 Route::get('/menagement', [WebpageController::class,'management']);
@@ -51,32 +55,40 @@ Route::get('/sanitation', [WebpageController::class,'sanitation']);
 Route::get('/tenders', [WebpageController::class,'tenders']);
 Route::get('/vacancies', [WebpageController::class,'vacancies']);
 
+Route::post('/contact_store', [ContactUsController::class,'store']);
 
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-});
+
+
+
 
 Auth::routes();
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    });
+    Route::get('/user', [admin_controller::class,'registered'])->name('users');
+
+    Route::get('/anouncement',[Anouncement_controller::class,'index'])->name('anouncement');
+    Route::get('/view-anouncement', function () {
+        return view('admin.anouncement.anouncements');
+    });
+    Route::get('/create_anouncement',[Anouncement_controller::class,'store']);
+    Route::get('/anouncement/{id}',[Anouncement_controller::class,'edit']);
+    Route::post('/update_anouncement/{id}',[Anouncement_controller::class,'update']);
+    Route::delete('/delete_anouncement/{id}',[Anouncement_controller::class,'destroy']);
+
+    Route::get('/events',[Event_controller::class,'index']);
+    Route::post('/add_event',[Event_controller::class,'store']);
+    Route::put('/update_event/{id}',[Event_controller::class,'update']);
+    Route::delete('/event_delete/{id}',[Event_controller::class,'destroy']);
+
+});
 
 Route::get('/lang/{lang}' , [App\Http\Controllers\LanguageController::class, 'switchLang'])->name('lang.switch');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/user', [admin_controller::class,'registered'])->name('users');
 
-Route::get('/anouncement',[Anouncement_controller::class,'index'])->name('anouncement');
-Route::get('/view-anouncement', function () {
-    return view('admin.anouncement.anouncements');
-});
-Route::get('/create_anouncement',[Anouncement_controller::class,'store']);
-Route::get('/anouncement/{id}',[Anouncement_controller::class,'edit']);
-Route::post('/update_anouncement/{id}',[Anouncement_controller::class,'update']);
-Route::delete('/delete_anouncement/{id}',[Anouncement_controller::class,'destroy']);
-
-Route::get('/events',[Event_controller::class,'index']);
-Route::post('/add_event',[Event_controller::class,'store']);
-Route::put('/update_event/{id}',[Event_controller::class,'update']);
-Route::delete('/event_delete/{id}',[Event_controller::class,'destroy']);
 
 
