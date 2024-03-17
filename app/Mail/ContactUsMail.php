@@ -30,7 +30,7 @@ class ContactUsMail extends Mailable
     {
         return new Envelope(
             from: new Address($this->contactUs->email, $this->contactUs->names),
-            subject: $this->contactUs->subject,
+            subject: "Contact Us",
         );
     }
 

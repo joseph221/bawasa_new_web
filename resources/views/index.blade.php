@@ -88,7 +88,7 @@
                                                         Suspendisse interdum consectetur libero id faucibus nisl tincidunt
                                                         eget. Tortor dignissim convallis aenean et tortor at....
                                                         <a class="text-nowrap read-more" href="#">
-                                                            Read More</a>
+                                                            {{ __('messages.read_more')}}</a>
                                                     </p>
                                                 </div>
                                             </div>
@@ -108,7 +108,7 @@
                                                         aliquet sagittis id consectetur purus ut faucibus pulvinar
                                                         elementum....
                                                         <a class="text-nowrap read-more" href="#">
-                                                            Read More</a>
+                                                            {{ __('messages.read_more')}}</a>
                                                     </p>
                                                 </div>
                                             </div>
@@ -117,7 +117,7 @@
                                     </div>
                                 </div>
                                 <div class="text-center mt-auto mb-2">
-                                    <a class="btn btn-custom btn-sm" href="#">More Announcements</a>
+                                    <a class="btn btn-custom btn-sm" href="#">{{ __('messages.more_anouncements')}}</a>
                                 </div>
                             </div>
                         </div>
@@ -130,8 +130,8 @@
                                             incididunt ut labore et dolore magna aliqua.
                                         </p>
                                         <div class="text-center mt-auto mb-2">
-                                            <a class="btn btn-custom btn-sm" href="our_services/clean-water-supply">Read
-                                                More</a>
+                                            <a class="btn btn-custom btn-sm" href="our_services/clean-water-supply">
+                                                {{ __('messages.read_more')}}</a>
                                         </div>
                                     </div>
 
@@ -162,7 +162,7 @@
 
                                             </button>
                                         </a><br>
-                                        <a href="online-services/view-bill">
+                                        {{-- <a href="online-services/view-bill">
                                             <button type="button"
                                                 class="btn btn-custom list-group-item list-group-item-action">
                                                 <i class="fa fa-arrow-circle-right"></i> {{ __('messages.View_Bill')}}
@@ -173,7 +173,7 @@
                                                 class="btn btn-custom list-group-item list-group-item-action">
                                                 <i class="fa fa-arrow-circle-right"></i> {{ __('messages.Remove_Sewage_Water')}}
                                             </button>
-                                        </a>
+                                        </a> --}}
 
                                     </div>
                                 </div>
@@ -234,7 +234,7 @@
                                     </div>
                                 </div>
                                 <div class="text-center mt-auto mb-2">
-                                    <a class="btn btn-custom btn-sm" href="#news">More Events</a>
+                                    <a class="btn btn-custom btn-sm" href="#news">{{ __('messages.more_events')}}</a>
                                 </div>
                             </div>
                         </div>
@@ -259,7 +259,7 @@
                                                         <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                                                             eiusmod tempor incididunt ut labore et dolore magna aliqua....
                                                             ...
-                                                            <a class="text-nowrap read-more" href="#">Read More</a>
+                                                            <a class="text-nowrap read-more" href="#">{{ __('messages.more_news')}}</a>
                                                         </h6>
 
                                                     </div>
@@ -279,7 +279,7 @@
                                                         <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                                                             eiusmod tempor incididunt ut labore et dolore magna aliqua....
                                                             ...
-                                                            <a class="text-nowrap read-more" href="#">Read More</a>
+                                                            <a class="text-nowrap read-more" href="#">{{ __('messages.more_news')}}</a>
                                                         </h6>
 
                                                     </div>
@@ -290,7 +290,7 @@
                                     </div>
                                 </div>
                                 <div class="text-center mt-auto mb-2">
-                                    <a class="btn btn-custom btn-sm" href="#news">More News</a>
+                                    <a class="btn btn-custom btn-sm" href="#news">{{ __('messages.more_news')}}</a>
                                 </div>
                             </div>
                         </div>

@@ -24,7 +24,7 @@
             "Planned" => "Iliyopangwa",
             "excuted" => "Iliyotekelezwa",
             "current" => "Inayoendelea",
-            
+
         "publications" => "Machapisho",
             "Guidelines" => "Miongozo",
             "Policies" => "Sera",
@@ -61,7 +61,12 @@
         "New_Connection_Service" => "Maunganisho Mapya ya Maji",
         "Report_Issue" => "Toa Taarifa",
         "View_Bill" => "Angalia bill",
-        "Remove_Sewage_Water" => "Kutoa Maji Taka"
-        
+        "Remove_Sewage_Water" => "Kutoa Maji Taka",
+
+        "more_news" => "Habari Zaidi",
+        "more_anouncements" => "Matangazo Zaidi",
+        "more_events" => "Matukio Zaidi",
+        "read_more" => "Soma Zaidi"
+
     ];
 ?>

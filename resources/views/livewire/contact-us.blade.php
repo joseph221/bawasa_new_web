@@ -73,13 +73,13 @@
                                             <span class="form_error" style="color: red"></span>
                                         </p>
                                     </div>
-                                    <div class="col-md-12 col-sm-12 p-1">
+                                    {{-- <div class="col-md-12 col-sm-12 p-1">
                                         <input placeholder="" autofocus="" required="" wire:model="subject" type="text" />
                                         <label for="names">Subject</label>
                                         <p>
                                             <span class="form_error" style="color: red"></span>
                                         </p>
-                                    </div>
+                                    </div> --}}
                                     <div class="col-md-12 col-sm-12 p-2">
                                         <textarea placeholder="Message" cols="30" rows="3" autofocus="" required=""
                                             wire:model="message"></textarea>

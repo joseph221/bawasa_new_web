@@ -13,7 +13,7 @@
                                 <a href=""><i class="fa fa-home"></i></a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                Acts
+                                {{ __('messages.Acts')}}
                             </li>
                         </ol>
                     </div>
@@ -21,7 +21,7 @@
                 <div class="content-border">
                     <div class="sidebar jsSubMainHeight pb-3">
                         <div class="sidebar-info">
-                            <h4 class="sidebar-header "><i class="fa fa-tint"></i>Water Services</h4>
+                            <h4 class="sidebar-header "><i class="fa fa-tint"></i> {{ __('messages.Water_Services')}}</h4>
                             <div class="info-items">
                                 <div class="">
                                     <div class="date clearfix">
@@ -37,8 +37,7 @@
                                     </a><a href="/online-services/new-water-connection">
                                         <button type="button"
                                             class=" btn btn-custom list-group-item list-group-item-action">
-                                            <i class="fa fa-angle-double-right" aria-hidden="true"></i> New Connection
-                                            Service
+                                            <i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ __('messages.New_Connection_Service')}}
                                         </button>
                                     </a>
 
@@ -61,7 +60,7 @@
                                     </a><a href="/online-services/report-issue">
                                         <button type="button" class="btn btn-custom list-group-item list-group-item-action">
                                             <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                                            Report Issue <br>
+                                            {{ __('messages.Report_Issue')}} <br>
                                         </button>
                                     </a>
 
@@ -116,7 +115,7 @@
                         </div>
 
                         <div class="sidebar-info mb-2">
-                            <h4 class="sidebar-header">Announcements</h4>
+                            <h4 class="sidebar-header"><i class="fa fa-bullhorn"></i> {{ __('messages.Anouncements')}}</h4>
                             <div class="info-items">
 
                                 <ul class="list-unstyled programs p-1">
@@ -148,7 +147,7 @@
                                 </ul>
                             </div>
                             <div class="text-center more">
-                                <a href="/announcements" class="btn btn-custom">More Announcements
+                                <a href="/announcements" class="btn btn-custom">{{ __('messages.more_anouncements')}}
                                     <i class="fas fa-long-arrow-alt-right"></i>
                                 </a>
                             </div>
@@ -161,10 +160,10 @@
                             <div class="col-md-12">
                                 <div>
                                     <h4 class="title-decoration py-2 mb-3">
-                                        Acts
+                                        {{ __('messages.Acts')}}
                                     </h4>
                                     <div>
-                                        
+
                                     </div>
                                 </div>
                             </div>

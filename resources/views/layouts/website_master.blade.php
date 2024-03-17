@@ -136,9 +136,9 @@
                                 <a href="/#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ __('messages.service')}}<b
                                         class="caret"></b></a>
                                 <ul class="dropdown-menu drop">
-                                    <li><a class="dropdown-item" href="pages/services/clean_water_service.php">{{ __('messages.Clean_Water_Services')}}</a>
+                                    <li><a class="dropdown-item" href="clean_water">{{ __('messages.Clean_Water_Services')}}</a>
                                     </li>
-                                    <li><a class="dropdown-item" href="pages/services/sanitation_service.php">{{ __('messages.Sanitation_Services')}}</a>
+                                    <li><a class="dropdown-item" href="sanitation">{{ __('messages.Sanitation_Services')}}</a>
                                     </li>
                                 </ul>
                             </li>
@@ -146,58 +146,58 @@
                                     data-toggle="dropdown">{{ __('messages.projects')}}
                                     <b class="caret"></b></a>
                                 <ul class="dropdown-menu drop">
-                                    <li><a class="dropdown-item" href="pages/projects/planned.php">{{ __('messages.Planned')}}</a></li>
-                                    <li><a class="dropdown-item" href="pages/projects/excuted.php">{{ __('messages.excuted')}}</a></li>
-                                    <li><a class="dropdown-item" href="pages/projects/current.php">{{ __('messages.current')}}</a>
+                                    <li><a class="dropdown-item" href="planned">{{ __('messages.Planned')}}</a></li>
+                                    <li><a class="dropdown-item" href="excuted">{{ __('messages.excuted')}}</a></li>
+                                    <li><a class="dropdown-item" href="current">{{ __('messages.current')}}</a>
                                     </li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown"><a href="/#" class="nav-link dropdown-toggle"
                                     data-toggle="dropdown">{{ __('messages.publications')}}<b class="caret"></b></a>
                                 <ul class="dropdown-menu drop">
-                                    <li><a class="dropdown-item" href="pages/publication/guidelines.php">{{ __('messages.Guidelines')}}</a>
+                                    <li><a class="dropdown-item" href="guidlines">{{ __('messages.Guidelines')}}</a>
                                     </li>
-                                    <li><a class="dropdown-item" href="pages/publication/polices.php">{{ __('messages.Policies')}}</a></li>
-                                    <li><a class="dropdown-item" href="pages/publication/acts.php">{{ __('messages.Acts')}}</a></li>
+                                    <li><a class="dropdown-item" href="polices">{{ __('messages.Policies')}}</a></li>
+                                    <li><a class="dropdown-item" href="acts">{{ __('messages.Acts')}}</a></li>
                                     <li><a class="dropdown-item"
-                                            href="pages/publication/regulations.php">{{ __('messages.Regulations')}}</a>
+                                            href="regulation">{{ __('messages.Regulations')}}</a>
                                     </li>
-                                    <li><a class="dropdown-item" href="pages/publication/newsletters.php">{{ __('messages.Newsletter')}}</a>
+                                    <li><a class="dropdown-item" href="newsletters">{{ __('messages.Newsletter')}}</a>
                                     </li>
-                                    <li><a class="dropdown-item" href="pages/publication/flyers.php">{{ __('messages.Flyers')}}</a></li>
+                                    <li><a class="dropdown-item" href="flyers">{{ __('messages.Flyers')}}</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown"><a href="/#" class="nav-link dropdown-toggle"
                                     data-toggle="dropdown">{{ __('messages.Media_centre')}}<b class="caret"></b></a>
                                 <ul class="dropdown-menu drop">
-                                    <li><a class="dropdown-item" href="/pressreleases">{{ __('messages.Press_Release')}}</a>
+                                    <li><a class="dropdown-item" href="press">{{ __('messages.Press_Release')}}</a>
                                     </li>
-                                    <li><a class="dropdown-item" href="pages/media-center/video_galley.php">{{ __('messages.Video')}}</a>
+                                    <li><a class="dropdown-item" href="video">{{ __('messages.Video')}}</a>
                                     </li>
-                                    <li><a class="dropdown-item" href="pages/media-center/photo_galley.php">{{ __('messages.Photo')}}</a>
+                                    <li><a class="dropdown-item" href="photo">{{ __('messages.Photo')}}</a>
                                     </li>
-                                    <li><a class="dropdown-item" href="/publications/7">{{ __('messages.Speeches')}}</a>
+                                    <li><a class="dropdown-item" href="speech">{{ __('messages.Speeches')}}</a>
                                     </li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown"><a href="/#" class="nav-link dropdown-toggle"
                                     data-toggle="dropdown">{{ __('messages.office_areas')}}<b class="caret"></b></a>
                                 <ul class="dropdown-menu drop" style="display: none;">
-                                    <li><a class="dropdown-item" href="pages/areas/kateshi.php">{{ __('messages.Kateshi')}} </a>
+                                    <li><a class="dropdown-item" href="kateshi">{{ __('messages.Kateshi')}} </a>
                                     </li>
-                                    <li><a class="dropdown-item" href="pages/areas/bashnet.php">{{ __('messages.Bashnet')}} </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="pages/areas/dareda.php">{{ __('messages.Dareda')}} </a>
+                                    <li><a class="dropdown-item" href="bashnet">{{ __('messages.Bashnet')}} </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="pages/areas/gallapo.php">{{ __('messages.Gallapo')}} </a>
+                                        <a class="dropdown-item" href="dareda">{{ __('messages.Dareda')}} </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="pages/areas/magugu.php">{{ __('messages.Magugu')}} </a>
+                                        <a class="dropdown-item" href="gallapo">{{ __('messages.Gallapo')}} </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="pages/areas/babati.html">{{ __('messages.Babati')}} </a>
+                                        <a class="dropdown-item" href="magugu">{{ __('messages.Magugu')}} </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="babati">{{ __('messages.Babati')}} </a>
                                     </li>
                                 </ul>
                             </li>

@@ -9,7 +9,7 @@
                 <nav aria-label="breadcrumb" class="breadcrumb-container">
                     <div class="container">
                         <ol class="breadcrumb  py-1 mb-0">
-                            <li class="breadcrumb-item"><a href="https://www.mwauwasa.go.tz/"><i class="fa fa-home"></i></a>
+                            <li class="breadcrumb-item"><a href="/"><i class="fa fa-home"></i></a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">Gallapo Office Area</li>
                         </ol>
@@ -20,7 +20,7 @@
                     <div class="container">
                     <div class="sidebar jsSubMainHeight pb-3">
                         <div class="sidebar-info">
-                            <h4 class="sidebar-header "><i class="fa fa-tint"></i>Water Services</h4>
+                            <h4 class="sidebar-header "><i class="fa fa-tint"></i> {{ __('messages.Water_Services')}}</h4>
                             <div class="info-items">
                                 <div class="">
                                     <div class="date clearfix">
@@ -36,7 +36,7 @@
                                     </a><a href="/online-services/new-water-connection">
                                         <button type="button"
                                             class=" btn btn-custom list-group-item list-group-item-action">
-                                            <i class="fa fa-angle-double-right" aria-hidden="true"></i> New Connection Service
+                                            <i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ __('messages.New_Connection_Service')}}
                                         </button>
                                     </a>
 
@@ -60,7 +60,7 @@
                                         <button type="button"
                                             class="btn btn-custom list-group-item list-group-item-action">
                                             <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                                            Report Issue <br>
+                                            {{ __('messages.Report_Issue')}} <br>
                                         </button>
                                     </a>
 
@@ -115,7 +115,7 @@
                         </div>
 
                         <div class="sidebar-info mb-2">
-                            <h4 class="sidebar-header">Announcements</h4>
+                            <h4 class="sidebar-header"><i class="fa fa-bullhorn"></i> {{ __('messages.Anouncements')}}</h4>
                             <div class="info-items">
 
                                 <ul class="list-unstyled programs p-1">
@@ -147,7 +147,7 @@
                                 </ul>
                             </div>
                             <div class="text-center more">
-                                <a href="/announcements" class="btn btn-custom">More Announcements
+                                <a href="/announcements" class="btn btn-custom">{{ __('messages.more_anouncements')}}
                                     <i class="fas fa-long-arrow-alt-right"></i>
                                 </a>
                             </div>
@@ -175,7 +175,7 @@
                                                     <th scope="row">1</th>
                                                     <td>Domestic</td>
                                                     <td>D</td>
-                                                    <td>27994</td>
+                                                    <td>10613</td>
 
                                                 </tr>
                                                 <tr>
@@ -184,7 +184,7 @@
                                                     <th scope="row">2</th>
                                                     <td>Commercial</td>
                                                     <td>C</td>
-                                                    <td>995</td>
+                                                    <td>218</td>
 
                                                 </tr>
                                                 <tr>
@@ -193,7 +193,7 @@
                                                     <th scope="row">3</th>
                                                     <td>Instituition</td>
                                                     <td>INS</td>
-                                                    <td>120</td>
+                                                    <td>342</td>
 
                                                 </tr>
                                                 <tr>
@@ -209,55 +209,12 @@
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">5</th>
-                                                    <td>Kiosks/Stand Pipe/Gati</td>
+                                                    <td>Kiosks</td>
                                                     <td>K</td>
                                                     <td>81</td>
 
                                                 </tr>
                                                 <tr>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">6</th>
-                                                    <td>Bottling Industries</td>
-                                                    <td>B</td>
-                                                    <td>16</td>
-
-                                                </tr>
-                                                <tr>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">7</th>
-                                                    <td>Public Schools</td>
-                                                    <td>PSCH</td>
-                                                    <td>53</td>
-
-                                                </tr>
-                                                <tr>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">8</th>
-                                                    <td>Construction</td>
-                                                    <td>T</td>
-                                                    <td>364</td>
-
-                                                </tr>
-                                                <tr>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">9</th>
-                                                    <td>House of Worship</td>
-                                                    <td>HW</td>
-                                                    <td>168</td>
-
-                                                </tr>
-                                                <tr>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">10</th>
-                                                    <td>MWAUWASA Water Bowser</td>
-                                                    <td>MWB</td>
-                                                    <td>0</td>
-
                                                 </tr>
                                                 <tr>
                                                 </tr>

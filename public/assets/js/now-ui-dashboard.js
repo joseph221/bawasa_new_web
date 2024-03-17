@@ -32,6 +32,7 @@
 
  */
 
+
 (function() {
   isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
 
@@ -188,3 +189,9 @@ function hexToRGB(hex, alpha) {
     return "rgb(" + r + ", " + g + ", " + b + ")";
   }
 }
+$(function() {
+    $('#markasread').click(function () {
+        alert('cliked')
+    })
+})
+

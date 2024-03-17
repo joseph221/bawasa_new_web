@@ -56,6 +56,12 @@ Route::get('/tenders', [WebpageController::class,'tenders']);
 Route::get('/vacancies', [WebpageController::class,'vacancies']);
 
 Route::post('/contact_store', [ContactUsController::class,'store']);
+Route::get('/markAsRead', function () {
+    auth()->user()->unreadNotifications->markAsRead();
+});
+
+Route::get('/markAsRead/{notificationId}', [admin_controller::class, 'markAsread']);
+Route::delete('/delete_not/{notificationId}', [admin_controller::class, 'deleteNotification']);
 
 
 
@@ -68,6 +74,8 @@ Route::middleware(['auth'])->group(function () {
         return view('admin.dashboard');
     });
     Route::get('/user', [admin_controller::class,'registered'])->name('users');
+    Route::get('/notification', [admin_controller::class,'Notifications']);
+    Route::get('/notification2', [admin_controller::class,'Notifications2']);
 
     Route::get('/anouncement',[Anouncement_controller::class,'index'])->name('anouncement');
     Route::get('/view-anouncement', function () {
@@ -88,6 +96,9 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/lang/{lang}' , [App\Http\Controllers\LanguageController::class, 'switchLang'])->name('lang.switch');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
 
 
 

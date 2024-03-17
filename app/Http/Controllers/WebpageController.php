@@ -87,7 +87,7 @@ class WebpageController extends Controller
         return view('pages.publication.guidelines');
     }
     public function newsletters(){
-        return view('pages.publication.newslatters');
+        return view('pages.publication.newsletters');
     }
     public function polices(){
         return view('pages.publication.polices');

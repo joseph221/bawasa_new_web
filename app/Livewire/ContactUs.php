@@ -44,7 +44,7 @@ class ContactUs extends Component
             'organization'=> $this->organization,
             'phone'=> $this->phone,
             'message'=> $this->message,
-            'subject'=> $this->subject
+            'subject'=> "Contact Us"
         ]);
         if($contactUs){
            $mail = Mail::To('mrdavidjoseph60@gmail.com')->send(new ContactUsMail($contactUs));
@@ -59,7 +59,7 @@ class ContactUs extends Component
                     'organization'=> $this->organization,
                     'phone'=> $this->phone,
                     'message'=> $this->message,
-                    'subject'=> $this->subject
+                    'subject'=> "Contact Us"
                 ]);
             }
             $this->clear();

@@ -39,10 +39,10 @@
   <div class="wrapper ">
     <div class="sidebar" data-color="orange"><!--Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"-->
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+        <a href="/dashboard" class="simple-text logo-mini">
             <img src="../assets/img/logo.png" alt="" srcset="">
         </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        <a href="/dashboard" class="simple-text logo-normal">
           BAWASA
         </a>
       </div>
@@ -66,12 +66,12 @@
               <p>Maps</p>
             </a>
           </li>
-          <li>
-            <a href="./notifications.html">
+          {{-- <li class="{{ 'notification' == request()->path() ? 'active' : ''}}">
+            <a href="">
               <i class="now-ui-icons ui-1_bell-53"></i>
               <p>Notifications</p>
             </a>
-          </li>
+          </li> --}}
           <li class="{{ 'user' == request()->path() ? 'active' : ''}}">
             <a href="./user">
               <i class="now-ui-icons users_single-02"></i>
@@ -119,7 +119,7 @@
             <span class="navbar-toggler-bar navbar-kebab"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
-            <form>
+            {{-- <form>
               <div class="input-group no-border">
                 <input type="text" value="" class="form-control" placeholder="Search...">
                 <div class="input-group-append">
@@ -128,17 +128,18 @@
                   </div>
                 </div>
               </div>
-            </form>
+            </form> --}}
             <ul class="navbar-nav">
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                 <a class="nav-link" href="#pablo">
                   <i class="now-ui-icons media-2_sound-wave"></i>
                   <p>
                     <span class="d-lg-none d-md-block">Stats</span>
                   </p>
                 </a>
-              </li>
-              <li class="nav-item dropdown">
+              </li> --}}
+              {{-- <li class="nav-item dropdown" id="markasread" onclick="markNotificationAsread()"> --}}
+                <li class="nav-item dropdown" id="markasread" onclick="markNotificationAsread()">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="now-ui-icons ui-1_bell-53"></i>
                     <span class="badge-lg">{{ count(auth()->user()->unreadNotifications) }}</span>
@@ -147,13 +148,11 @@
                   </p> --}}
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                    @foreach (auth()->user()->unreadNotifications as $notification )
-                        @include('admin.notifications.'.Str::snake(class_basename($notification->type)))
-                        {{-- <a class="dropdown-item" href="#">{{ Str::snake(class_basename($notification->type)) }}</a> --}}
-                    @endforeach
-                  {{-- <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a> --}}
+                    {{-- @foreach (auth()->user()->unreadNotifications as $notification )
+                    <span>@include('admin.notifications.'.Str::snake(class_basename($notification->type)))</span>
+                    @endforeach --}}
+                  <a class="dropdown-item" href="/notification2">Request Service Notifications</a>
+                  <a class="dropdown-item" href="/notification">Contact us Notifications</a>
 
                 </div>
               </li>
@@ -210,29 +209,11 @@
       </div>
       <footer class="footer">
         <div class=" container-fluid ">
-          <nav>
-            <ul>
-              <li>
-                <a href="https://www.creative-tim.com">
-                  Creative Tim
-                </a>
-              </li>
-              <li>
-                <a href="http://presentation.creative-tim.com">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="http://blog.creative-tim.com">
-                  Blog
-                </a>
-              </li>
-            </ul>
-          </nav>
+
           <div class="copyright" id="copyright">
             &copy; <script>
               document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-            </script>, Designed by <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
+            </script>, Designed by <a href="" target="_blank">?</a>. Coded by <a href="" target="_blank">?</a>.
           </div>
         </div>
       </footer>
@@ -252,6 +233,7 @@
   <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
   <script src="../assets/demo/demo.js"></script>
+  <script src="../assets/js/dashmain.js"></script>
   <script>
     // Show the progress bar
     function showProgressBar() {

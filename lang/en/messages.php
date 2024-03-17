@@ -61,7 +61,12 @@
         "New_Connection_Service" => "New Connection Service",
         "Report_Issue" => "Report Issue",
         "View_Bill" => "View Bill",
-        "Remove_Sewage_Water" => "Remove Sewage Water"
-        
+        "Remove_Sewage_Water" => "Remove Sewage Water",
+
+        "more_news" => "More News",
+        "more_anouncements" => "MOre Anouncements",
+        "more_events" => "More Events",
+        "read_more" => "Read More"
+
     ];
 ?>

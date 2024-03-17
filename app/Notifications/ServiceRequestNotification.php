@@ -6,19 +6,18 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
-use Illuminate\Support\Carbon;
-use App\Models\Contact_Us;
+use App\Models\RequestService;
 
-class ContactUsNotification extends Notification
+class ServiceRequestNotification extends Notification
 {
     use Queueable;
 
     /**
      * Create a new notification instance.
      */
-    public function __construct(protected Contact_Us $contactUs)
+    public function __construct(protected RequestService $requestService)
     {
-        $this->contactUs = $contactUs;
+        $this->requestService = $requestService;
     }
 
     /**
@@ -31,7 +30,7 @@ class ContactUsNotification extends Notification
         return ['database'];
     }
 
-    /**
+     /**
      * Get the array representation of the notification.
      *
      * @return array<string, mixed>
@@ -39,11 +38,10 @@ class ContactUsNotification extends Notification
     public function toDatabase(object $notifiable): array
     {
         return [
-            "contact" => $this->contactUs,
-            "kindof" => "contact"
+            "request_service" => $this->requestService,
+            "kindof" => "request"
         ];
     }
-
 
     /**
      * Get the array representation of the notification.
