@@ -26,6 +26,15 @@
                 @csrf
                 @method('put')
                 <div class="form-group">
+                    <label for="">Title</label>
+                    <input type="text" name="title" class="form-control" value="{{ $d->title }}" id="">
+                    @error('title')
+                            <span class="invalid-feedback text-danger" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                <div class="form-group">
                 <label for="">Date</label>
                 <input type="date" class="form-control" value="{{ $d->date }}" id="" name="date">
                 @error('name')
@@ -60,9 +69,9 @@
 
             </form>
         </div>
-    
+
     </div>
-    </div> 
+    </div>
 </div>
 
 <!-- delete modal -->
@@ -83,7 +92,7 @@
                 </div>
             </form>
         </div>
-    
+
     </div>
-    </div> 
+    </div>
 </div>

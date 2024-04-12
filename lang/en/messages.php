@@ -64,7 +64,7 @@
         "Remove_Sewage_Water" => "Remove Sewage Water",
 
         "more_news" => "More News",
-        "more_anouncements" => "MOre Anouncements",
+        "more_anouncements" => "More Anouncements",
         "more_events" => "More Events",
         "read_more" => "Read More"
 

@@ -19,6 +19,7 @@ class Event_controller extends Controller
         $title = 'Delete row!';
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
+
         // return $event;
         return view('admin.events.events')->with('events',$event);
     }
@@ -36,8 +37,9 @@ class Event_controller extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $request->validate([
+            'title' =>'required',
             'imge' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'date' =>'required',
             'desc' =>'required'
@@ -46,6 +48,7 @@ class Event_controller extends Controller
         $imageName = rand(1000,1322).'_'.$request->imge->getClientOriginalName();
         $request->imge->move('uploads',$imageName);
         $event = Event::create([
+            'title' =>$request->title,
             'image' => $imageName,
             'date' => $request->date,
             'desc' => $request->desc

@@ -16,13 +16,14 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            <h4 class="title-decoration text-capitalize py-2 mb-3"> Board Members</h4>
+                            <h4 class="title-decoration text-capitalize py-2 mb-3"> {{ __('messages.Management')}}</h4>
                             <div class="management">
                                 <!-- NOTE: Head of Management  -->
                                 <div class="row justify-content-md-center">
                                     <div class="col-md-4">
                                         <div class="profile text-center">
-                                            <img src="../../resourse/org.png" alt="" class="img-fluid" width="160">
+                                            <img src="../../resourse/org.png" alt="" class="img-fluid"
+                                                width="160">
                                             <p class="mb-1"><a href="https://www.maji.go.tz/administration/list/82">Prof.
                                                     Jamal
                                                     Katundu</a></p>
@@ -32,16 +33,16 @@
                                 </div>
                                 <!-- Other Members #Loop -->
                                 <!-- <div class="row justify-content-md-center">
-                                <div class="col-md-8">
-                                    <div class="profile text-center mt-3">
-                                        <img src="./Menejimenti _ Wizara ya Maji_files/thumb-1694588555-naibu km.jpeg"
-                                            alt="" class="img-fluid" width="140">
-                                        <p class="mb-1"><a href="https://www.maji.go.tz/administration/list/18">Eng. Mwajuma
-                                                Waziri</a></p>
-                                        <p class="my-1">Naibu Katibu Mkuu</p>
+                                    <div class="col-md-8">
+                                        <div class="profile text-center mt-3">
+                                            <img src="./Menejimenti _ Wizara ya Maji_files/thumb-1694588555-naibu km.jpeg"
+                                                alt="" class="img-fluid" width="140">
+                                            <p class="mb-1"><a href="https://www.maji.go.tz/administration/list/18">Eng. Mwajuma
+                                                    Waziri</a></p>
+                                            <p class="my-1">Naibu Katibu Mkuu</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </div> -->
+                                </div> -->
                                 <div class="row justify-content-md-center">
 
                                 </div>
@@ -50,7 +51,8 @@
                                 <div class="row justify-content-md-center">
                                     <div class="col-md-3">
                                         <div class="profile text-center mt-3">
-                                            <img src="../../resourse/org.png" alt="" class="img-fluid" width="140">
+                                            <img src="../../resourse/org.png" alt="" class="img-fluid"
+                                                width="140">
                                             <p class="mb-1"><a href="https://www.maji.go.tz/administration/list/20">Dkt.
                                                     George
                                                     Lugomela</a></p>
@@ -59,7 +61,8 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="profile text-center mt-3">
-                                            <img src="../../resourse/org.png" alt="" class="img-fluid" width="140">
+                                            <img src="../../resourse/org.png" alt="" class="img-fluid"
+                                                width="140">
                                             <p class="mb-1"><a href="https://www.maji.go.tz/administration/list/34">Eng.
                                                     Dorisia
                                                     Mulashani</a></p>
@@ -69,24 +72,28 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="profile text-center mt-3">
-                                            <img src="../../resourse/org.png" alt="" class="img-fluid" width="140">
-                                            <p class="mb-1"><a href="https://www.maji.go.tz/administration/list/37">CPA (T)
+                                            <img src="../../resourse/org.png" alt="" class="img-fluid"
+                                                width="140">
+                                            <p class="mb-1"><a href="https://www.maji.go.tz/administration/list/37">CPA
+                                                    (T)
                                                     Ahadi Msangi</a></p>
                                             <p class="my-1">Mhasibu Mkuu</p>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="profile text-center mt-3">
-                                            <img src="../../resourse/org.png" alt="" class="img-fluid" width="140">
-                                            <p class="mb-1"><a href="https://www.maji.go.tz/administration/list/40">Florence
+                                            <img src="../../resourse/org.png" alt="" class="img-fluid"
+                                                width="140">
+                                            <p class="mb-1"><a
+                                                    href="https://www.maji.go.tz/administration/list/40">Florence
                                                     Lawrence</a></p>
                                             <p class="my-1">Mkuu wa Kitengo cha Mawasiliano Serikalini</p>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="profile text-center mt-3">
-                                            <img src="./Menejimenti _ Wizara ya Maji_files/medium-1632814809-9.jpg" alt=""
-                                                class="img-fluid" width="140">
+                                            <img src="./Menejimenti _ Wizara ya Maji_files/medium-1632814809-9.jpg"
+                                                alt="" class="img-fluid" width="140">
                                             <p class="mb-1"><a href="https://www.maji.go.tz/administration/list/41">Simon
                                                     Nkanyemka</a></p>
                                             <p class="my-1">Mkurugenzi Kitengo cha Sheria</p>
@@ -103,7 +110,8 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="profile text-center mt-3">
-                                            <img src="../../resourse/org.png" alt="" class="img-fluid" width="140">
+                                            <img src="../../resourse/org.png" alt="" class="img-fluid"
+                                                width="140">
                                             <p class="mb-1"><a href="https://www.maji.go.tz/administration/list/44">Eng.
                                                     Lyidia
                                                     Joseph</a></p>

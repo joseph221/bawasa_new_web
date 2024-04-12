@@ -1,6 +1,6 @@
 @extends('layouts.master')
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    
+
 @section('title')
     Bawasa | Events
 @endsection
@@ -31,7 +31,15 @@
                 @endif
 
         @csrf
-
+        <div class="form-group">
+            <label for="">Title</label>
+            <input type="text" name="title" class="form-control" value="{{ old('title') }}" id="">
+            @error('title')
+                    <span class="invalid-feedback text-danger" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+        </div>
         <div class="form-group">
         <label for="">Date</label>
         <input type="date" class="form-control" value="{{ old('date') }}" id="" name="date">
@@ -66,7 +74,7 @@
 
       </form>
       </div>
-      
+
     </div>
   </div>
 </div>
@@ -84,24 +92,26 @@
                     <i class="now-ui-icons ui-1_simple-add"></i> Add </button>
                     </div>
                 </div>
-               
+
               </div>
               <div class="card-body">
                 <div class="table-responsive">
                   <table class="table">
                     <thead class=" text-primary">
-                   
+
                       <th>Image</th>
+                      <th>Title</th>
                       <th>Date</th>
                       <th>Desctription</th>
                       <th>Action</th>
-                      
+
                     </thead>
                     <tbody>
                         @foreach( $events as $d )
-                        
+
                             <tr>
                                 <td><img src="{{ asset('uploads/'.$d->image) }}" alt="" srcset="" style="heigt:100px; width:100px;"></td>
+                                <td>{{ $d->title}}</td>
                                 <td>{{ $d->date}}</td>
                                 <td>{{ $d->desc}}</td>
                                 <td>
@@ -111,7 +121,7 @@
                               @include('admin.events.action')
 
                             </tr>
-                            
+
                         @endforeach
                     </tbody>
                   </table>
@@ -120,7 +130,7 @@
               </div>
             </div>
           </div>
-          
+
         </div>
 @endsection
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -128,5 +138,5 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 @section('scripts')
-    
+
 @endsection

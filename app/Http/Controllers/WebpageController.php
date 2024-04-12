@@ -5,114 +5,188 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Models\Anouncement;
+use App\Models\Event;
+// use App\Models\Anouncement;
 
 class WebpageController extends Controller
 {
     public function index(){
-        return view('index');
+        $anouncement = Anouncement::paginate(2);
+        $event = Event::paginate(2);
+        return view('index',['sidedata' => $anouncement,'events'=> $event]);
     }
     // about us
     public function background(){
-        return view('pages.about.background');
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.about.background',['sidedata' => $sideanouncement]);
     }
     public function board(){
-        return view('pages.about.board_members');
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.about.board_members',['sidedata' => $sideanouncement]);
     }
     public function management(){
-        return view('pages.about.menagment');
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.about.menagment',['sidedata' => $sideanouncement]);
     }
     public function mission(){
-        return view('pages.about.mission_and_vision');
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.about.mission_and_vision',['sidedata' => $sideanouncement]);
     }
     public function orgStru(){
-        return view('pages.about.organization_structure');
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.about.organization_structure',['sidedata' => $sideanouncement]);
     }
     // areas
     public function babati(){
-        return view('pages.areas.babati');
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.areas.babati',['sidedata' => $sideanouncement]);
     }
     public function bashnet(){
-        return view('pages.areas.bashnet');
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.areas.bashnet',['sidedata' => $sideanouncement]);
     }
     public function dareda(){
-        return view('pages.areas.dareda');
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.areas.dareda',['sidedata' => $sideanouncement]);
     }
     public function gallapo(){
-        return view('pages.areas.gallapo');
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.areas.gallapo',['sidedata' => $sideanouncement]);
     }
     public function kateshi(){
-        return view('pages.areas.kateshi');
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.areas.kateshi',['sidedata' => $sideanouncement]);
     }
     public function magugu(){
-        return view('pages.areas.magugu');
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.areas.magugu',['sidedata' => $sideanouncement]);
     }
     // contacts
     public function contact_us(){
-        return view('pages.contacts.contact_us');
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.contacts.contact_us',['sidedata' => $sideanouncement]);
     }
     public function faqs(){
-        return view('pages.fasq.faqs');
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.fasq.faqs',['sidedata' => $sideanouncement]);
     }
     // media
     public function photo(){
-        return view('pages.media-center.photo');
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.media-center.photo',['sidedata' => $sideanouncement]);
     }
     public function video(){
-        return view('pages.media-center.video');
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.media-center.video',['sidedata' => $sideanouncement]);
     }
     public function press(){
-        return view('pages.media-center.press_release');
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.media-center.press_release',['sidedata' => $sideanouncement]);
     }
     public function speech(){
-        return view('pages.media-center.speeches');
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.media-center.speeches',['sidedata' => $sideanouncement]);
     }
     // project
     public function current(){
-        return view('pages.projects.current');
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.projects.current',['sidedata' => $sideanouncement]);
     }
     public function excuted(){
-        return view('pages.projects.excuted');
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.projects.excuted',['sidedata' => $sideanouncement]);
     }
     public function planned(){
-        return view('pages.projects.planned');
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.projects.planned',['sidedata' => $sideanouncement]);
     }
 // publication
     public function acts(){
-        return view('pages.publication.acts');
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.publication.acts',['sidedata' => $sideanouncement]);
     }
     public function flyers(){
-        return view('pages.publication.flyers');
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.publication.flyers',['sidedata' => $sideanouncement]);
     }
     public function guidlines(){
-        return view('pages.publication.guidelines');
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.publication.guidelines',['sidedata' => $sideanouncement]);
     }
     public function newsletters(){
-        return view('pages.publication.newsletters');
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.publication.newsletters',['sidedata' => $sideanouncement]);
     }
     public function polices(){
-        return view('pages.publication.polices');
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.publication.polices',['sidedata' => $sideanouncement]);
     }
     public function regulation(){
-        return view('pages.publication.regulations');
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.publication.regulations',['sidedata' => $sideanouncement]);
+    }
+    public function report_issue(){
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.report_issue.report_issue',['sidedata' => $sideanouncement]);
     }
 
     // request service
     public function requestservice(){
-        return view('pages.requestSevice.request_service');
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.requestSevice.request_service',['sidedata' => $sideanouncement]);
     }
    // services
     public function clean_water(){
-        return view('pages.services.clean_water');
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.services.clean_water',['sidedata' => $sideanouncement]);
+    }
+    // services
+    public function our_service(){
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.our_service.our_service',['sidedata' => $sideanouncement]);
     }
     public function sanitation(){
-        return view('pages.services.sanitation_service');
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.services.sanitation_service',['sidedata' => $sideanouncement]);
+    }
+    public function remove_sewage(){
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.remove_sewage.remove_sewage',['sidedata' => $sideanouncement]);
     }
     // tender
     public function tenders(){
-        return view('pages.tenders.tenders');
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.tenders.tenders',['sidedata' => $sideanouncement]);
     }
     // vacancies
     public function vacancies(){
-        return view('pages.vacancies.vacancies');
+        $sideanouncement = Anouncement::paginate(2);
+        return view('pages.vacancies.vacancies',['sidedata' => $sideanouncement]);
     }
+
+    // anouncements
+    public function anouncemetall(){
+        $sideanouncement = Anouncement::paginate(2);
+        $anouncement = Anouncement::paginate(5);
+        return view('pages.anouncements.anouncementAll',['sidedata' => $sideanouncement,'anouncements'=>$anouncement]);
+    }
+    public function anouncemetById($id){
+        $sideanouncement = Anouncement::paginate(2);
+        $anouncementById = Anouncement::find($id);
+        return view('pages.anouncements.anouncementView',['sidedata' => $sideanouncement,'anounceById'=> $anouncementById]);
+    }
+
+    // events
+    public function newsall(){
+        $sideanouncement = Anouncement::paginate(2);
+        $event = Event::paginate(5);
+        return view('pages.events.eventall',['sidedata' => $sideanouncement,'events'=>$event]);
+    }
+    public function newsById($id){
+        $sideanouncement = Anouncement::paginate(2);
+        $eventById = Event::find($id);
+        return view('pages.events.eventView',['sidedata' => $sideanouncement,'newsById'=> $eventById]);
+    }
+
 }

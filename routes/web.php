@@ -23,6 +23,9 @@ Route::get('/', [WebpageController::class,'index']);
 Route::get('/contact_mail', function () {
     return view('mails.contactMail');
 });
+Route::get('/logintry', function () {
+    return view('livewire.login-live');
+});
 Route::get('/background', [WebpageController::class,'background']);
 Route::get('/board', [WebpageController::class,'board']);
 Route::get('/menagement', [WebpageController::class,'management']);
@@ -54,6 +57,13 @@ Route::get('/clean_water', [WebpageController::class,'clean_water']);
 Route::get('/sanitation', [WebpageController::class,'sanitation']);
 Route::get('/tenders', [WebpageController::class,'tenders']);
 Route::get('/vacancies', [WebpageController::class,'vacancies']);
+Route::get('/anouncements', [WebpageController::class,'anouncemetall']);
+Route::get('/anouncements/{id}', [WebpageController::class,'anouncemetById']);
+Route::get('/news', [WebpageController::class,'newsall']);
+Route::get('/news/{id}', [WebpageController::class,'newsById']);
+Route::get('/our_service', [WebpageController::class,'our_service']);
+Route::get('/report_issue', [WebpageController::class,'report_issue']);
+Route::get('/remove_sewage', [WebpageController::class,'remove_sewage']);
 
 Route::post('/contact_store', [ContactUsController::class,'store']);
 Route::get('/markAsRead', function () {
@@ -92,6 +102,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/event_delete/{id}',[Event_controller::class,'destroy']);
 
 });
+
 
 Route::get('/lang/{lang}' , [App\Http\Controllers\LanguageController::class, 'switchLang'])->name('lang.switch');
 

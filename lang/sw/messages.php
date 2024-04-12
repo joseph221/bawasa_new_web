@@ -19,6 +19,7 @@
         "service" => "Huduma",
             "Clean_Water_Services" => "Huduma ya Maji Safi",
             "Sanitation_Services" => "Huduma ya Usafi wa Mazingira",
+            "our_service" => "",
 
         "projects" => "Miradi",
             "Planned" => "Iliyopangwa",
@@ -45,7 +46,7 @@
             "Dareda" => "Kanda ya Dareda",
             "Gallapo" => "Kanda ya Gallapo",
             "Magugu" => "Kanda ya Magugu",
-            "Babati" => "Kanda ya Babati Head ",
+            "Babati" => "Kanda ya Babati mjini",
 
         "e_mrejesho"=> "E-mrejesho",
         "ministry_of"=>"WIZARA YA MAJI",
@@ -57,6 +58,8 @@
         "Our_Services" => "Huduma Zetu",
         "Water_Services" => "Huduma Ya Maji Safi",
         "Biography" => "Wasifu",
+
+
 
         "New_Connection_Service" => "Maunganisho Mapya ya Maji",
         "Report_Issue" => "Toa Taarifa",

@@ -11,157 +11,21 @@
                     <ol class="breadcrumb  py-1 mb-0">
                         <li class="breadcrumb-item"><a href=""><i class="fa fa-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">Bashnet Office Area</li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ __('messages.Bashnet')}}</li>
                     </ol>
                 </div>
             </nav>
             <div class="content-border">
 
                 <div class="container">
-                    <div class="sidebar jsSubMainHeight pb-3">
-                        <div class="sidebar-info">
-                            <h4 class="sidebar-header "><i class="fas fa-tint"></i> {{ __('messages.Water_Services')}}</h4>
-                            <div class="info-items">
-                                <div class="">
-                                    <div class="date clearfix">
-                                        <span class="float-right">
-                                            <!-- <i class="fas fa-calendar-alt"></i> 11-09-2017</span> -->
-                                        </span>
-                                    </div>
-                                    <a href="zones/news.html" class="media">
-                                        <div class="news-image">
-                                            <!-- <img src="images/bg-image.jpg" alt="News Image" class="img-fluid"> -->
-                                        </div>
-
-                                    </a><a href="online-services/new-water-connection">
-                                        <button type="button"
-                                            class=" btn btn-custom list-group-item list-group-item-action"><i
-                                                class="fas fa-arrow-alt-circle-right"></i> {{ __('messages.New_Connection_Service')}}
-                                        </button>
-                                    </a>
-
-
-                                </div>
-                                <div class="">
-                                    <div class="date clearfix">
-                                        <span class="float-right">
-                                            <!-- <i class="fas fa-calendar-alt"></i> 11-09-2017</span> -->
-                                        </span>
-                                    </div>
-                                    <a href="zones/news.html" class="media">
-                                        <div class="news-image">
-                                            <!-- <img src="images/bg-image.jpg" alt="News Image" class="img-fluid"> -->
-                                        </div>
-                                        <div class="media-body news-content">
-                                            <!-- <div>News Title: Lorem ipsum dolor sit endus amet, consectetur adipisicing elit. Architecto impedit soluta...
-                        </div> -->
-                                        </div>
-                                    </a><a href="online-services/report-issue">
-                                        <button type="button"
-                                            class="btn btn-custom list-group-item list-group-item-action"><i
-                                                class="fas fa-arrow-alt-circle-right"></i>
-                                                {{ __('messages.Report_Issue')}} <br>
-                                        </button>
-                                    </a>
-
-                                </div>
-                                <div class="">
-                                    <div class="date clearfix">
-                                        <span class="float-right">
-                                            <!-- <i class="fas fa-calendar-alt"></i> 11-09-2017</span> -->
-                                        </span>
-                                    </div>
-                                    <a href="zones/news.html" class="media">
-                                        <div class="news-image">
-                                            <!-- <img src="images/bg-image.jpg" alt="News Image" class="img-fluid"> -->
-                                        </div>
-                                        <div class="media-body news-content">
-                                            <!-- <div>News Title: Lorem ipsum dolor sit endus amet, consectetur adipisicing elit. Architecto impedit soluta...
-                        </div> -->
-                                        </div>
-                                    {{-- </a><a href="online-services/view-bill">
-                                        <button type="button"
-                                            class="btn btn-custom list-group-item list-group-item-action"><i
-                                                class="fas fa-arrow-alt-circle-right"></i>View Bill
-                                        </button>
-                                    </a> --}}
-
-                                </div>
-                                <div class="">
-                                    <div class="date clearfix">
-                                        <span class="float-right">
-                                            <!-- <i class="fas fa-calendar-alt"></i> 11-09-2017</span> -->
-                                        </span>
-                                    </div>
-                                    <a href="zones/news.html" class="media">
-                                        <div class="news-image">
-                                            <!-- <img src="images/bg-image.jpg" alt="News Image" class="img-fluid"> -->
-                                        </div>
-                                        <div class="media-body news-content">
-                                            <!-- <div>News Title: Lorem ipsum dolor sit endus amet, consectetur adipisicing elit. Architecto impedit soluta...
-                        </div> -->
-                                        </div>
-                                    </a>
-                                    {{-- <a href="online-services/remove-sewage-water">
-                                        <button type="button"
-                                            class="btn btn-custom list-group-item list-group-item-action"><i
-                                                class="fas fa-arrow-alt-circle-right"></i>
-                                            Remove Sewage Water
-                                        </button>
-                                    </a> --}}
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="sidebar-info mb-2">
-                            <h4 class="sidebar-header"><i class="fa fa-bullhorn"></i> {{ __('messages.Anouncements')}}</h4>
-                            <div class="info-items">
-
-                                <ul class="list-unstyled programs p-1">
-                                    <li class="border-bottom">
-                                        <div class="clearfix">
-                                            <span class="date float-right"><i class="far fa-calendar-alt"></i>
-                                                17<sup>th</sup>
-                                                Oct-2023</span>
-                                        </div>
-                                        <a class="link-black"
-                                            href="announcements/dawati-la-huduma-kwa-wateja-mwauwasa">Watumishi
-                                            wa Mamlaka ya Majisafi na Usafi wa Mazingira Mwanza (MWAUWASA) wakitoa elimu
-                                            juu ya huduma...</a>
-
-                                    </li>
-
-                                    <li class="border-bottom">
-                                        <div class="clearfix">
-                                            <span class="date float-right"><i class="far fa-calendar-alt"></i>
-                                                05<sup>th</sup>
-                                                Oct-2023</span>
-                                        </div>
-                                        <a class="link-black"
-                                            href="announcements/ofa-maalum-kwa-wateja-waliositishiwa-huduma-ya-maji-kwa-kushindwa-kulipa-bili">Mteja
-                                            aliyesitishiwa huduma atalipa deni lake lote na atarejeshewa huduma ya maji
-                                            bila kulipa ada ya...</a>
-
-                                    </li>
-
-                                </ul>
-                            </div>
-                            <div class="text-center more">
-                                <a href="announcements" class="btn btn-custom">{{ __('messages.more_anouncements')}}
-                                    <i class="fas fa-long-arrow-alt-right"></i>
-                                </a>
-                            </div>
-                        </div>
-
-                    </div>
+                    @include("layouts.sidecontent")
 
 
                     <div class="sub-main-content js-sub-main-height" style="height: 586.312px;">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="publication">
-                                    <h4 class="title-decoration py-2 mb-3"> Bashnet Office Area</h4>
+                                    <h4 class="title-decoration py-2 mb-3"> {{ __('messages.Bashnet')}}</h4>
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr style="background-color: #A9A9A9">
@@ -176,7 +40,7 @@
                                                 <th scope="row">1</th>
                                                 <td>Domestic</td>
                                                 <td>D</td>
-                                                <td>10613</td>
+                                                <td>545</td>
 
                                             </tr>
                                             <tr>
@@ -185,7 +49,7 @@
                                                 <th scope="row">2</th>
                                                 <td>Commercial</td>
                                                 <td>C</td>
-                                                <td>218</td>
+                                                <td>9</td>
 
                                             </tr>
                                             <tr>
@@ -194,7 +58,7 @@
                                                 <th scope="row">3</th>
                                                 <td>Instituition</td>
                                                 <td>INS</td>
-                                                <td>342</td>
+                                                <td>35</td>
 
                                             </tr>
                                             <tr>
@@ -203,7 +67,7 @@
                                                 <th scope="row">4</th>
                                                 <td>Industrial</td>
                                                 <td>IND</td>
-                                                <td>177</td>
+                                                <td>0</td>
 
                                             </tr>
                                             <tr>
@@ -212,7 +76,7 @@
                                                 <th scope="row">5</th>
                                                 <td>Kiosks</td>
                                                 <td>K</td>
-                                                <td>81</td>
+                                                <td>91</td>
 
                                             </tr>
                                             <tr>
@@ -221,7 +85,7 @@
                                             </tr>
                                             <tr style="background-color: #A9A9A9">
                                                 <td colspan="3">Total</td>
-                                                <td>29968</td>
+                                                <td>680</td>
                                             </tr>
                                             <tr>
                                             </tr>
