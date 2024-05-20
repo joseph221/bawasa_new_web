@@ -28,7 +28,8 @@
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="../assets/font-awesome-4.7.0/css/font-awesome.min.css">
+  {{-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> --}}
   <!-- CSS Files -->
   <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
@@ -57,15 +58,15 @@
           <li>
             <a href="./icons.html">
               <i class="now-ui-icons education_atom"></i>
-              <p>Icons</p>
+              <p>Contact Us</p>
             </a>
           </li>
-          <li>
+          {{-- <li>
             <a href="./map.html">
               <i class="now-ui-icons location_map-big"></i>
               <p>Maps</p>
             </a>
-          </li>
+          </li> --}}
           {{-- <li class="{{ 'notification' == request()->path() ? 'active' : ''}}">
             <a href="">
               <i class="now-ui-icons ui-1_bell-53"></i>
@@ -90,10 +91,16 @@
               <p>Anouncement</p>
             </a>
           </li>
-          <li class="active-pro">
-            <a href="./upgrade.html">
+          <li class="{{ 'press' == request()->path() ? 'active' : ''}}">
+            <a href="./press">
               <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-              <p>Upgrade to PRO</p>
+              <p>Press Release</p>
+            </a>
+          </li>
+          <li class="{{ 'request_service' == request()->path() ? 'active' : ''}}">
+            <a href="/request_service">
+              <i class="now-ui-icons arrows-1_cloud-download-93"></i>
+              <p>Connection request</p>
             </a>
           </li>
         </ul>
@@ -247,6 +254,9 @@
   </script>
 
     @yield('scripts')
+    @livewireScripts
+
+    @stack('scripts')
 </body>
 
 </html>

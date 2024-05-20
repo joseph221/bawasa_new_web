@@ -10,15 +10,19 @@ use Livewire\Component;
 
 class RequestServiceLivewire extends Component
 {
-    public $first_name;
-    public $middle_name;
-    public $last_name;
-    public $mobile_number;
-    public $email;
-    public $service_type;
-    public $location;
+    public $first_name="";
+    public $middle_name="";
+    public $last_name="";
+    public $mobile_number="";
+    public $mtaa;
+    public $prot_number="";
+    public $house_no="";
+    public $nida="";
+    public $email="";
+    public $service_type="";
+    public $location="";
     // public $location_status;
-    public $site_plan_available;
+    public $site_plan_available="";
     public $location_status = "";
     public $show_site_plan_available = false;
 
@@ -27,6 +31,10 @@ class RequestServiceLivewire extends Component
         $this->middle_name = "";
         $this->last_name = "";
         $this->mobile_number = "";
+        $this->mtaa ="";
+        $this->prot_number ="";
+        $this->house_no ="";
+        $this->nida ="";
         $this->email = "";
         $this->service_type = "";
         $this->location = "";
@@ -40,31 +48,42 @@ class RequestServiceLivewire extends Component
             "middle_name" => $this->middle_name,
             "last_name" => $this->last_name,
             "mobile_number" => $this->mobile_number,
+            "mtaa"=>$this->mtaa ,
+            "prot_number"=>$this->prot_number ,
+            "house_no"=>$this->house_no ,
+            "nida"=>$this->nida ,
             "email" => $this->email,
             "service_type" => $this->service_type,
             "location" => $this->location,
             "site_plan_available" => $this->site_plan_available,
             "location_status" => $this->location_status,
         ]);
+
         if ($requestService) {
             $request_service = RequestService::create([
                 "first_name" => $this->first_name,
                 "middle_name" => $this->middle_name,
                 "last_name" => $this->last_name,
                 "mobile_number" => $this->mobile_number,
+                "mtaa"=>$this->mtaa ,
+                "prot_number"=>$this->prot_number ,
+                "house_no"=>$this->house_no ,
+                "nida"=>$this->nida ,
                 "email" => $this->email,
                 "service_type" => $this->service_type,
                 "location" => $this->location,
                 "site_plan_available" => $this->site_plan_available,
                 "location_status" => $this->location_status,
             ]);
-
+            $this->resetExcept('show_site_plan_available');
             if ($request_service) {
                 $user = User::All();
                 Notification::send($user, new ServiceRequestNotification($requestService));
             }
+
             $this->clear();
-            return back();
+
+            return redirect(request()->header('Referer'));
         }
     }
 

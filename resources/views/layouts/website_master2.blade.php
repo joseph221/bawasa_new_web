@@ -431,5 +431,7 @@ function dropdown_langSet(val) {
     }
 }
 </script>
+@livewireScripts
 
+@stack('scripts')
 </html>

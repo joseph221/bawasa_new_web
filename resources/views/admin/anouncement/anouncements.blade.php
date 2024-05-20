@@ -43,58 +43,9 @@
   </div>
 </div>
 
-<div class="row">
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-header">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h4 class="card-title"> Anouncements</h4>
-
-                    </div>
-                    <div class="col-md-6">
-                    <button type="button" class="btn btn-info float-right" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">
-                    <i class="now-ui-icons ui-1_simple-add"></i> Add </button>
-                    </div>
-                </div>
-               
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table">
-                    <thead class=" text-primary">
-                   
-                      <th>Title</th>
-                      <th>Date</th>
-                      <th>Content</th>
-                      <th>Action</th>
-                      
-                    </thead>
-                    <tbody>
-                        @foreach( $anouncement as $d )
-                        
-                            <tr>
-                                <td>{{ $d->title }}</td>
-                                <td>{{ $d->date}}</td>
-                                <td>{{ $d->content}}</td>
-                                <td>
-                                    <div class="btn btn-success" value="{{$d->id}}" data-toggle="modal" data-target="#editModal_{{$d->id}}">edit</div>
-                                    <a href="delete_anouncement/{{ $d->id }}" class="btn btn-danger" data-confirm-delete="true">Delete</a>
-                                </td>
-                              @include('admin.anouncement.action')
-                            </tr>
-                        @endforeach
-                    </tbody>
-                  </table>
-                  {{ $anouncement->links() }}
-                </div>
-              </div>
-            </div>
-          </div>
-          
-        </div>
+<livewire:admin.anouncementlive />
 @endsection
 
 @section('scripts')
-    
+
 @endsection

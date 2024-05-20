@@ -98,7 +98,7 @@
                 <div class="table-responsive">
                   <table class="table">
                     <thead class=" text-primary">
-                      <th></th>
+
                       <th>Image</th>
                       <th>Title</th>
                       <th>Date</th>
@@ -110,16 +110,15 @@
                         @foreach( $events as $d )
 
                             <tr>
-                                <td><input type="checkbox" name="" id=""></td>
                                 <td><img src="{{ asset('uploads/'.$d->image) }}" alt="" srcset="" style="heigt:100px; width:100px;"></td>
                                 <td>{{ $d->title}}</td>
                                 <td>{{ $d->date}}</td>
-                                <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;">{{ $d->desc}}</td>
+                                <td>{{ $d->desc}}</td>
                                 <td>
-                                    <div class="btn btn-outline-success" value="{{$d->id}}" data-toggle="modal" data-target="#editModal_{{$d->id}}"><i class="fa fa-pencil" aria-hidden="true"></i></div>
-                                    <a href="event_delete/{{ $d->id }}" class="btn btn-outline-danger" data-confirm-delete="true"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                    <div class="btn btn-success" value="{{$d->id}}" data-toggle="modal" data-target="#editModal_{{$d->id}}">edit</div>
+                                    <a href="event_delete/{{ $d->id }}" class="btn btn-danger" data-confirm-delete="true">Delete</a>
                                 </td>
-                              @include('admin.events.action')
+                              @include('livewire.admin.press_action')
 
                             </tr>
 

@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="./assets/font-awesome-4.7.0/css/font-awesome.min.css">
 
 
-    <script src="https://www.google.com/recaptcha/api.js"></script>
 </head>
 
 <body wire:loading.class="opacity-50">
@@ -26,8 +25,13 @@
         <div class="container">
             <div class="topbar-menu">
                 <ul class=" top-bar-menu-listing">
-                    <li>
-                        <a class=" dropdown-toggle" id="langdropdown" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-sign-language"
+                    <li class="list-inline-item sm-hide">
+                        @foreach (Config::get('languages') as $lang => $language)
+                                @if($lang != App::getLocale())
+                                <a href="/lang/{{$lang}}" class="dropdown-item"><i class="fa fa-sign-language"></i> {{$language}}</a>
+                                @endif
+                            @endforeach
+                        {{-- <a class=" dropdown-toggle" id="langdropdown" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-sign-language"
                                 ></i> {{ Config::get('languages')[App::getLocale()]}}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="langdropdown">
@@ -37,7 +41,7 @@
                                 @endif
                             @endforeach
 
-                        </div>
+                        </div> --}}
                     </li>
                     <li class="list-inline-item sm-hide">
                         <a href="requestservice">
@@ -170,7 +174,7 @@
                             <li class="nav-item dropdown"><a href="/#" class="nav-link dropdown-toggle"
                                     data-toggle="dropdown">{{ __('messages.Media_centre')}}<b class="caret"></b></a>
                                 <ul class="dropdown-menu drop">
-                                    <li><a class="dropdown-item" href="press">{{ __('messages.Press_Release')}}</a>
+                                    <li><a class="dropdown-item" href="pressrelease">{{ __('messages.Press_Release')}}</a>
                                     </li>
                                     <li><a class="dropdown-item" href="video">{{ __('messages.Video')}}</a>
                                     </li>
@@ -233,7 +237,8 @@
                     <ul class="footer-list">
                         <li>
                             <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                            BABATI URBAN WATER SUPPLY AND SANITATION AUTHORITY - BAWASA <br>
+                            <span>BABATI URBAN WATER SUPPLY AND SANITATION AUTHORITY - BAWASA</span>
+                             <br>
                         </li>
                         <li>
                             <i class="fa fa-arrow-right" aria-hidden="true"></i>
@@ -264,7 +269,7 @@
                                 <li class="list-styled-none social-btn mt-3"><a href="" target="_blank"
                                         class="bg-twitter d-flex align-items-center justify-content-center"><i
                                             class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-                                <li class="list-styled-none social-btn mt-3"><a href="" target="_blank"
+                                <li class="list-styled-none social-btn mt-3"><a href="https://www.youtube.com/results?search_query=BAWASA" target="_blank"
                                         class="bg-youtube d-flex align-items-center justify-content-center"><i
                                             class="fa fa-youtube fa-lg" aria-hidden="true"></i></a></li>
                                 <li class="list-styled-none social-btn mt-3"><a href="" target="_blank"
@@ -290,7 +295,7 @@
                                 e-mrejesho
                             </a>
                         </li>
-                        <li>
+                        <li class="">
                             <i class="fa fa-arrow-right" aria-hidden="true"></i>
                             <a href="http://www.utumishi.go.tz/index.php/en" target="_blank">
                                 Public Service Management and Good Governance
@@ -314,31 +319,8 @@
                                 eGA
                             </a>
                         </li>
-                        <li class="list-styled-none more-link"><a href="#relatedlinks">More
-                                <i class="fa fa-plus" aria-hidden="true"></i></a></li>
                     </ul>
                 </div>
-
-                <!-- <div class="footer-dropdown">
-            <input class="footer-checkbox" type="checkbox" checked="">
-            <h4 class="footer-heading">Visitors Counter</h4>
-            <ul class="footer-list list-styled ">
-                <ul class="fa-ul mb-0">
-                    <li class="list-styled-none">
-                        <i class="fa-li fa fa-users"></i> Today : <span id="today">24</span></li>
-                    <li class="list-styled-none">
-                        <i class="fa-li fa fa-users"></i> Yesterday : <span id="yesterday">18</span></li>
-                    <li class="list-styled-none">
-                        <i class="fa-li fa fa-users"></i> This Week : <span id="week">138</span>
-                    </li>
-                    <li class="list-styled-none">
-                        <i class="fa-li fa fa-users"></i> This Month : <span id="month">1,662</span>
-                    </li>
-                    <li class="list-styled-none">
-                        <i class="fa-li fa fa-users"></i> Total : <span id="all">21,335</span></li>
-                </ul>
-            </ul>
-        </div> -->
 
                 <div class="footer-dropdown">
                     <input class="footer-checkbox" type="checkbox" checked="">
@@ -347,11 +329,7 @@
 
                         <li>
                             <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                            <a href="">Mail</a>
-                        </li>
-                        <li>
-                            <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                            <a href="">ERMS</a>
+                            <a href="https://mail.bawasa.go.tz/">Mail</a>
                         </li>
                     </ul>
                 </div>
@@ -386,7 +364,9 @@
             </div>
         </div>
     </footer>
+    @livewireScripts
 
+    @stack('scripts')
 </body>
 <!-- script -->
 <script>

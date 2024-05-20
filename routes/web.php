@@ -7,6 +7,8 @@ use App\Http\Controllers\admin\Event_controller;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\WebpageController;
 use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\admin\Request_Service_Controller;
+use App\Livewire\Admin\PressRelease;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,7 +43,8 @@ Route::get('/contact_us', [WebpageController::class,'contact_us']);
 Route::get('/faqs', [WebpageController::class,'faqs']);
 Route::get('/photo', [WebpageController::class,'photo']);
 Route::get('/video', [WebpageController::class,'video']);
-Route::get('/press', [WebpageController::class,'press']);
+Route::get('/pressrelease', [WebpageController::class,'press']);
+Route::get('/uploads/pressrelease/{file}',[PressRelease::class,'showPdf']);
 Route::get('/speech', [WebpageController::class,'speech']);
 Route::get('/current', [WebpageController::class,'current']);
 Route::get('/excuted', [WebpageController::class,'excuted']);
@@ -78,6 +81,7 @@ Route::delete('/delete_not/{notificationId}', [admin_controller::class, 'deleteN
 
 
 
+
 Auth::routes();
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
@@ -100,6 +104,19 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/add_event',[Event_controller::class,'store']);
     Route::put('/update_event/{id}',[Event_controller::class,'update']);
     Route::delete('/event_delete/{id}',[Event_controller::class,'destroy']);
+
+    Route::get('/press',[PressRelease::class,'render']);
+    Route::post('/upload',[PressRelease::class,'upload']);
+    Route::get('/showPdf',[PressRelease::class,'showPdf']);
+
+    Route::get('/request_service',[Request_Service_Controller::class,'index']);
+    Route::post('/request_service/{id}',[Request_Service_Controller::class,'update']);
+    Route::get('/request_view/{id}',[Request_Service_Controller::class,'show']);
+    Route::get('/editOnprocess/{id}',[Request_Service_Controller::class,'editOnprocess']);
+    Route::get('/rollbackOnprocess/{id}',[Request_Service_Controller::class,'rollback']);
+
+
+
 
 });
 

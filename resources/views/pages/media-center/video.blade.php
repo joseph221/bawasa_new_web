@@ -13,7 +13,7 @@
                                 <a href=""><i class="fa fa-home"></i></a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                Video Galley
+                                {{ __('messages.Video')}}
                             </li>
                         </ol>
                     </div>
@@ -26,7 +26,7 @@
                             <div class="col-md-12">
                                 <div>
                                     <h4 class="title-decoration py-2 mb-3">
-                                        Video Galley
+                                        {{ __('messages.Video')}}
                                     </h4>
                                 </div>
                                 <div class="row more-info">

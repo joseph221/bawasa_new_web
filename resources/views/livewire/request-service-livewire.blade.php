@@ -36,18 +36,55 @@
                 <div class="form-row">
                     <div class="col-md-4 mb-3">
                         <label for="validationCustom03">Phone Number</label>
-                        <input type="text" class="form-control" id="validationCustom03"
+                        <input type="tell" class="form-control" id="validationCustom03"
                             placeholder="+255" wire:model="mobile_number" value="" required="">
                         <div class="invalid-feedback">
                             Please provide a valid Phone number
                         </div>
                     </div>
                     <div class="col-md-4 mb-3">
+                        <label for="validationCustom03">PLOT Number</label>
+                        <input type="text" class="form-control" id="validationCustom03"
+                            placeholder="" wire:model="prot_number" value="" required="">
+                        <div class="invalid-feedback">
+                            Please provide a valid Phone number
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
                         <label for="validationCustom04">Email Address</label>
                         <input type="Email" class="form-control" id="validationCustom04"
                             placeholder="" wire:model="email" value="" required="">
                         <div class="invalid-feedback">
                             Please provide a valid Email address.
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                        <label for="validationCustom03">Street Name</label>
+                        <input type="text" class="form-control" id="validationCustom03"
+                            placeholder="" wire:model="mtaa" value="" required="">
+                        <div class="invalid-feedback">
+                            Please provide a valid Phone number
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="validationCustom03">House Number:</label>
+                        <input type="text" class="form-control" id="validationCustom03"
+                            placeholder="" wire:model="house_no" value="" required="">
+                        <div class="invalid-feedback">
+                            Please provide a valid House number
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label for="validationCustom04">NIDA Number:</label>
+                        <input type="number" class="form-control" id="validationCustom04"
+                            placeholder="" wire:model="nida" value="" required="">
+                        <div class="invalid-feedback">
+                            Please provide a valid number.
                         </div>
                     </div>
 

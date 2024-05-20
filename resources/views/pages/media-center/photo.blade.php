@@ -13,7 +13,7 @@
                                 <a href=""><i class="fa fa-home"></i></a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                Picture Galley
+                                {{ __('messages.Photo')}}
                             </li>
                         </ol>
                     </div>
@@ -26,7 +26,7 @@
                             <div class="col-md-12">
                                 <div>
                                     <h4 class="title-decoration py-2 mb-3">
-                                        Picture Galley
+                                        {{ __('messages.Photo')}}
                                     </h4>
                                     <div>
                                     <ul class="photo-listing list-unstyled clearfix">

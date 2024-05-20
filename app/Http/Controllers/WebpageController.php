@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Models\Anouncement;
 use App\Models\Event;
+use App\Models\Press_Release;
 // use App\Models\Anouncement;
 
 class WebpageController extends Controller
@@ -81,8 +82,9 @@ class WebpageController extends Controller
         return view('pages.media-center.video',['sidedata' => $sideanouncement]);
     }
     public function press(){
+        $press_release = Press_Release::all();
         $sideanouncement = Anouncement::paginate(2);
-        return view('pages.media-center.press_release',['sidedata' => $sideanouncement]);
+        return view('pages.media-center.press_release',['sidedata' => $sideanouncement,'press_release'=> $press_release]);
     }
     public function speech(){
         $sideanouncement = Anouncement::paginate(2);
@@ -171,6 +173,7 @@ class WebpageController extends Controller
         $anouncement = Anouncement::paginate(5);
         return view('pages.anouncements.anouncementAll',['sidedata' => $sideanouncement,'anouncements'=>$anouncement]);
     }
+
     public function anouncemetById($id){
         $sideanouncement = Anouncement::paginate(2);
         $anouncementById = Anouncement::find($id);
@@ -187,6 +190,11 @@ class WebpageController extends Controller
         $sideanouncement = Anouncement::paginate(2);
         $eventById = Event::find($id);
         return view('pages.events.eventView',['sidedata' => $sideanouncement,'newsById'=> $eventById]);
+    }
+
+    public function showPdf($file){
+        $path = public_path('uploads/pressrelease/'.$file);
+        return response()->file($path);
     }
 
 }

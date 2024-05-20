@@ -13,12 +13,18 @@
             <br/>
             <br/>
 
-            {{-- <p>
-                <strong>name:</strong> {{ $not->data['contact']['names'] }}<br />
-                <strong>phone:</strong> {{ $not->data['contact']['phone'] }}<br />
-                <strong>email:</strong> {{ $not->data['contact']['email'] }}<br />
-                <strong>organisation:</strong> {{ $not->data['contact']['organization'] }}
-            </p> --}}
+            <p style="font-size: 25px">
+                <strong>Full Name:</strong> {{ $not->data['request_service']['first_name'] }}<br />
+                <strong>phone number:</strong> {{ $not->data['request_service']['mobile_number'] }}<br />
+                <strong>email:</strong> {{ $not->data['request_service']['email'] }}<br />
+                <strong>plot number:</strong> {{ $not->data['request_service']['prot_number'] }}<br />
+                <strong>Street name:</strong> {{ $not->data['request_service']['mtaa'] }}<br />
+                <strong>House number:</strong> {{ $not->data['request_service']['house_no'] }}<br />
+                <strong>NIDA number:</strong> {{ $not->data['request_service']['nida'] }}<br />
+                <strong>Location staus:</strong> {{ $not->data['request_service']['location_status'] }}<br />
+                <strong>Service Type:</strong> {{ $not->data['request_service']['service_type'] }}<br />
+
+            </p>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

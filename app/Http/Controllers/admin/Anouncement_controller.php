@@ -14,11 +14,11 @@ class Anouncement_controller extends Controller
      */
     public function index()
     {
-        $data = Anouncement::paginate(7);
+        // $data = Anouncement::paginate(7);
         $title = 'Delete row!';
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
-        return view('admin.anouncement.anouncements')->with('anouncement',$data);
+        return view('admin.anouncement.anouncements');
         //return response()->json(['data' => $data]);
     }
 
@@ -27,7 +27,7 @@ class Anouncement_controller extends Controller
      */
     public function create()
     {
-        
+
     }
 
     /**
@@ -51,10 +51,10 @@ class Anouncement_controller extends Controller
         }else {
             Alert::toast('fail to add anouncement', 'error');
             return redirect()->route('anouncement');
-            
-            
+
+
         }
-       
+
     }
 
     /**
