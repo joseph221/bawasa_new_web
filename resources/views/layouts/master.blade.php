@@ -50,7 +50,7 @@
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
           <li class="{{ 'dashboard' == request()->path() ? 'active' : ''}}">
-            <a href="./dashboard">
+            <a href="../dashboard">
               <i class="now-ui-icons design_app"></i>
               <p>Dashboard</p>
             </a>
@@ -73,32 +73,34 @@
               <p>Notifications</p>
             </a>
           </li> --}}
-          <li class="{{ 'user' == request()->path() ? 'active' : ''}}">
-            <a href="./user">
-              <i class="now-ui-icons users_single-02"></i>
-              <p>User Acounts</p>
-            </a>
-          </li>
+          @can('view user')
+            <li class="{{ 'users' == request()->path() ? 'active' : ''}}">
+                <a href="../users">
+                <i class="now-ui-icons users_single-02"></i>
+                <p>User Management</p>
+                </a>
+            </li>
+          @endcan
           <li class="{{ 'events' == request()->path() ? 'active':''}}">
-            <a href="./events">
+            <a href="../events">
               <i class="now-ui-icons design_bullet-list-67"></i>
               <p>Events</p>
             </a>
           </li>
           <li class="{{ 'anouncement' == request()->path() ? 'active' : ''}}">
-            <a href="./anouncement">
+            <a href="../anouncement">
               <i class="now-ui-icons text_caps-small"></i>
               <p>Anouncement</p>
             </a>
           </li>
           <li class="{{ 'press' == request()->path() ? 'active' : ''}}">
-            <a href="./press">
+            <a href="../press">
               <i class="now-ui-icons arrows-1_cloud-download-93"></i>
               <p>Press Release</p>
             </a>
           </li>
           <li class="{{ 'request_service' == request()->path() ? 'active' : ''}}">
-            <a href="/request_service">
+            <a href="../request_service">
               <i class="now-ui-icons arrows-1_cloud-download-93"></i>
               <p>Connection request</p>
             </a>

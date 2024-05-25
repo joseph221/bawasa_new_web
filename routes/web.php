@@ -1,14 +1,16 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\admin\admin_controller;
 use App\Http\Controllers\admin\Anouncement_controller;
 use App\Http\Controllers\admin\Event_controller;
+use App\Http\Controllers\admin\Request_Service_Controller;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\WebpageController;
-use App\Http\Controllers\ContactUsController;
-use App\Http\Controllers\admin\Request_Service_Controller;
 use App\Livewire\Admin\PressRelease;
+use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,11 +23,31 @@ use App\Livewire\Admin\PressRelease;
 |
 */
 
+Route::group(['middleware' => ['auth','role:super-admin|admin']], function() {
+
+    Route::resource('permissions', App\Http\Controllers\PermissionController::class);
+    Route::get('permissionsedit/{permissionId}', [App\Http\Controllers\PermissionController::class, 'edit']);
+    Route::get('permissions/{permissionId}/delete', [App\Http\Controllers\PermissionController::class, 'destroy']);
+
+
+    Route::resource('roles', App\Http\Controllers\RoleController::class);
+    Route::get('rolesedit/{roleId}', [App\Http\Controllers\RoleController::class, 'edit']);
+    Route::get('roles/{roleId}/delete', [App\Http\Controllers\RoleController::class, 'destroy']);
+    Route::get('give-permissionsToRoles/{roleId}', [App\Http\Controllers\RoleController::class, 'addPermissionToRole']);
+    Route::put('roles/{roleId}/give-permissions', [App\Http\Controllers\RoleController::class, 'givePermissionToRole']);
+
+    Route::resource('users', App\Http\Controllers\UserController::class);
+    Route::get('useredit/{userId}', [App\Http\Controllers\UserController::class, 'edit']);
+    Route::get('users/{userId}/delete', [App\Http\Controllers\UserController::class, 'destroy']);
+
+});
+Route::get('logout', [LoginController::class,'logout']);
+
 Route::get('/', [WebpageController::class,'index']);
 Route::get('/contact_mail', function () {
     return view('mails.contactMail');
 });
-Route::get('/logintry', function () {
+Route::get('/login', function () {
     return view('livewire.login-live');
 });
 Route::get('/background', [WebpageController::class,'background']);
@@ -84,9 +106,7 @@ Route::delete('/delete_not/{notificationId}', [admin_controller::class, 'deleteN
 
 Auth::routes();
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    });
+    Route::get('/dashboard',[admin_controller::class, 'index']);
     Route::get('/user', [admin_controller::class,'registered'])->name('users');
     Route::get('/notification', [admin_controller::class,'Notifications']);
     Route::get('/notification2', [admin_controller::class,'Notifications2']);

@@ -357,7 +357,7 @@
 
                 </ul>
                 <div class="text-center">Copyright ©<span id="copyrightDate">2019-2023</span>
-                    <a href="{{ route('login') }}">BAWASA </a> All Rights Reserved.
+                    <a href="/login">BAWASA </a> All Rights Reserved.
                     <br>
                     Imesanifiwa, Imetengenezwa, na <a href="#" target="_blank">?</a>
                 </div>

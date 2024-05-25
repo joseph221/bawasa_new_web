@@ -5,7 +5,7 @@
                 <div class="card-header">
                     <div class="row px-3">
                         <div class="col-md-12 ">
-                            <h4 class="card-title"> Requested Services</h4>
+                            <h4 class="card-title"> Roles</h4>
 
                             {{-- table tabs --}}
                             <div class=" d-flex justify-content-end align-content-center mb-2 mr-4">
@@ -36,12 +36,12 @@
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                 <a class="btn btn-success dropdown-item" href="#"
                                                     onclick="confirm('Are you sure you want to export these records?') ||
-                                            event.stopImmediatePropagation()"
+                                        event.stopImmediatePropagation()"
                                                     wire:click="exportselected()">Export to Excel</a>
 
                                                 <a class="btn btn-danger dropdown-item" href="#"
                                                     onclick="confirm('Are you sure you want to delete these records?') ||
-                                            event.stopImmediatePropagation()"
+                                        event.stopImmediatePropagation()"
                                                     wire:click="deleterecodes()">delete</a>
 
                                             </div>
@@ -66,6 +66,17 @@
                                 </div>
                                 {{-- end search form by all atributes --}}
 
+                                <div class="">
+                                    <a href="{{ url('roles') }}" class="btn btn-outline-primary mx-1">Roles</a>
+                                    <a href="{{ url('permissions') }}" class="btn btn-outline-info mx-1">Permissions</a>
+                                    <a href="{{ url('users') }}" class="btn btn-outline-warning mx-1">Users</a>
+                                    @can('create role')
+                                        <a href="{{ url('roles/create') }}" class="btn btn-outline-primary float-end"><i
+                                                class="now-ui-icons ui-1_simple-add"></i></a>
+                                    @endcan
+
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -77,11 +88,12 @@
                     <div class="col-md-10 ml-4">
                         @if ($selectAll)
                             <div>
-                                You have selected <strong>{{ $request->total() }}</strong> All items.
+                                You have selected <strong>{{ $roles->total() }}</strong> All items.
                             </div>
                         @else
                             <div>
-                                You have selected <strong>{{ count($checked) }}</strong> items,Do you want to select All <strong>{{ $request->total() }}</strong>?
+                                You have selected <strong>{{ count($checked) }}</strong> items,Do you want to select All
+                                <strong>{{ $roles->total() }}</strong>?
                                 <a href="#" class="ml-2" wire:click="selectAl()">selectAll</a>
                             </div>
                         @endif
@@ -90,82 +102,60 @@
                 @endif
 
 
-                {{-- notification table --}}
+                {{-- roles table --}}
                 <div class="card-body ">
+                    @if (session('status'))
+                        <div class="alert alert-success">{{ session('status') }}</div>
+                    @endif
+
                     <div class="table-responsive px-3 text-nowrap">
                         <table class="table">
                             <thead class=" text-primary">
                                 <th><input type="checkbox" name="" id="" wire:model.live="selectPage">
                                 </th>
-                                <th scope="col">Full name</th>
-                                <th scope="col">Street(mtaa)</th>
-                                <th scope="col">PLOT NO</th>
-                                <th scope="col">House No</th>
-                                <th scope="col">NIDA No</th>
-                                <th scope="col">Mobile Number</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Action</th>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th width="40%">Action</th>
 
                             </thead>
                             <tbody>
-                                @foreach ($request as $d)
+                                @foreach ($roles as $d)
                                     <tr class=" @if ($this->ischecked($d->id)) table-primary @endif">
                                         <td><input type="checkbox" name="" id=""
                                                 value="{{ $d->id }}" wire:model.live="checked"></td>
-
-
-                                        <td>{{ $d->first_name." ".$d->middle_name." ".$d->last_name }}</td>
-                                        <td>{{ $d->mtaa }}</td>
-                                        <td>{{ $d->prot_number }}</td>
-                                        <td>{{ $d->house_no }}</td>
-                                        <td>{{ $d->nida }}</td>
-                                        <td>{{ $d->mobile_number }}</td>
-                                        <td>{{ $d->email }}</td>
+                                        <td>{{ $d->id }}</td>
+                                        <td>{{ $d->name }}</td>
                                         <td>
-                                            @if ($d->opened_request == 1)
-                                                <div class="d-flex justify-content-center" style="width:90px; height:20px; background-color: rgb(0, 115, 0); border:1; border-radius:25px; color:aliceblue;">
-                                                    <span>opened</span>
-                                                </div>
-
-                                            @else
-                                            <div class="d-flex justify-content-center" style="width:90px; height:20px; background-color: rgb(162, 3, 3); border:1; border-radius:25px; color:aliceblue;">
-                                                <span>not opened</span>
-                                            </div>
-                                            @endif
-                                        </td>
-
-                                        <td>
-                                            <a type="button" class="btn btn-outline-info" href="request_view/{{ $d->id }}"> <i class="fa fa-eye" aria-hidden="true"></i></a>
-
-                                            @can('update cust_request')
-                                                <div class="btn btn-outline-success" value="{{ $d->id }}"
-                                                    data-toggle="modal" data-target="#editModal_{{ $d->id }}"><i
-                                                        class="fa fa-pencil" aria-hidden="true"></i></div>
-                                            @endcan
-                                            @can('delete cust_request')
-                                                @if (!$checked)
-                                                    <a class="btn btn-outline-danger" href="#"
-                                                    onclick="confirm('Are you sure you want to delete these record?') ||
-                                                    event.stopImmediatePropagation()"
-                                                    wire:click="deletesingle({{ $d->id }})"><i class="fa fa-trash"
-                                                        aria-hidden="true"></i></a>
-                                                @endif
+                                            @can('give permission to role')
+                                                <a href="{{ url('give-permissionsToRoles/' . $d->id) }}"
+                                                    class="btn btn-outline-warning" style="color: black">
+                                                    Add / Edit Role Permission
+                                                </a>
                                             @endcan
 
+                                            @can('update role')
+                                                <a href="{{ url('rolesedit/' . $d->id) }}"
+                                                    class="btn btn-outline-success">
+                                                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                </a>
+                                            @endcan
+
+                                            @can('delete role')
+                                                <a href="{{ url('roles/' . $d->id . '/delete') }}"
+                                                    class="btn btn-outline-danger mx-2">
+                                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                                </a>
+                                            @endcan
                                         </td>
-
-
-                                        @include('admin.request_sevice.action')
-
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
-                        {{ $request->links() }}
+                        {{ $roles->links() }}
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    {{-- Do your work, then step back. --}}
 </div>

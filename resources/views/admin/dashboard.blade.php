@@ -12,7 +12,7 @@
                     <div class="row">
                         <div class="col-8">
                             <h5 class="card-title widget-card-title mb-3">Opened Request</h5>
-                            <h4 class="card-subtitle text-body-secondary m-0">0</h4>
+                            <h4 class="card-subtitle text-body-secondary m-0">{{ count($openedRequest) }}</h4>
                         </div>
                         <div class="col-4">
                             <div class="d-flex justify-content-end">
@@ -31,7 +31,7 @@
                                     <i class="bi bi-arrow-right-short bsb-rotate-45"></i>
                                 </span>
                                 <div>
-                                    <p class="fs-7 mb-0">+26%</p>
+                                    <p class="fs-7 mb-0">+{{  (count($openedRequest)/count($requestService))*100  }}%</p>
                                 </div>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                     <div class="row">
                         <div class="col-8">
                             <h5 class="card-title widget-card-title mb-3">Processed Requests</h5>
-                            <h4 class="card-subtitle text-body-secondary m-0">0</h4>
+                            <h4 class="card-subtitle text-body-secondary m-0">{{ count($processedRequest) }}</h4>
                         </div>
                         <div class="col-4">
                             <div class="d-flex justify-content-end">
@@ -64,7 +64,7 @@
                                     <i class="bi bi-arrow-right-short bsb-rotate-n45"></i>
                                 </span>
                                 <div>
-                                    <p class="fs-7 mb-0">+26%</p>
+                                    <p class="fs-7 mb-0">+{{  (count($processedRequest)/count($requestService))*100  }}%</p>
                                 </div>
                             </div>
                         </div>
@@ -78,7 +78,7 @@
                     <div class="row">
                         <div class="col-8">
                             <h5 class="card-title widget-card-title mb-3">All Requests</h5>
-                            <h4 class="card-subtitle text-body-secondary m-0">0</h4>
+                            <h4 class="card-subtitle text-body-secondary m-0">{{ count($requestService) }}</h4>
                         </div>
                         <div class="col-4">
                             <div class="d-flex justify-content-end">
@@ -201,86 +201,28 @@
                   Name
                 </th>
                 <th>
-                  Country
+                  Email
                 </th>
                 <th>
-                  City
-                </th>
-                <th class="text-right">
-                  Salary
+                  User Type
                 </th>
               </thead>
               <tbody>
+                @foreach ( $users as $user )
                 <tr>
-                  <td>
-                    Dakota Rice
-                  </td>
-                  <td>
-                    Niger
-                  </td>
-                  <td>
-                    Oud-Turnhout
-                  </td>
-                  <td class="text-right">
-                    $36,738
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Minerva Hooper
-                  </td>
-                  <td>
-                    Curaçao
-                  </td>
-                  <td>
-                    Sinaai-Waas
-                  </td>
-                  <td class="text-right">
-                    $23,789
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Sage Rodriguez
-                  </td>
-                  <td>
-                    Netherlands
-                  </td>
-                  <td>
-                    Baileux
-                  </td>
-                  <td class="text-right">
-                    $56,142
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Doris Greene
-                  </td>
-                  <td>
-                    Malawi
-                  </td>
-                  <td>
-                    Feldkirchen in Kärnten
-                  </td>
-                  <td class="text-right">
-                    $63,542
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Mason Porter
-                  </td>
-                  <td>
-                    Chile
-                  </td>
-                  <td>
-                    Gloucester
-                  </td>
-                  <td class="text-right">
-                    $78,615
-                  </td>
-                </tr>
+                    <td>
+                      {{ $user->name }}
+                    </td>
+                    <td>
+                        {{ $user->email }}
+                    </td>
+                    <td>
+                        {{ $user->usertype }}
+                    </td>
+                  </tr>
+                @endforeach
+
+
               </tbody>
             </table>
           </div>

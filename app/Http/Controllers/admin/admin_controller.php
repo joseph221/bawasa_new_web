@@ -8,10 +8,21 @@ use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Models\RequestService;
 
 class admin_controller extends Controller
 {
     use Notifiable;
+
+    public function index(){
+        $requestService = RequestService::all();
+        $processedRequest = RequestService::where('processed_request',1)->get();
+        $openedRequest = RequestService::where('opened_request',1)->get();
+        $users = User::all();
+        // return $processedRequest;
+        return view('admin.dashboard',["requestService"=> $requestService,
+        "processedRequest"=>$processedRequest,"openedRequest"=>$openedRequest,"users"=>$users]);
+    }
 
     public function registered(){
         $users = User::all();
