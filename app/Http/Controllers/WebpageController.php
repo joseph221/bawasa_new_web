@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Anouncement;
+use App\Models\Board;
+use App\Models\Event;
+use App\Models\Managment;
+use App\Models\Photo;
+use App\Models\Press_Release;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use App\Models\Anouncement;
-use App\Models\Event;
-use App\Models\Press_Release;
-// use App\Models\Anouncement;
 
 class WebpageController extends Controller
 {
@@ -23,12 +25,31 @@ class WebpageController extends Controller
         return view('pages.about.background',['sidedata' => $sideanouncement]);
     }
     public function board(){
+        $mkb = Board::where('category','MKB')->first();
+        $mmkb = Board::where('category','MMKB')->orWhere('category','KTB')->get();
+        $mj =Board::where('category','MJ')->get();
         $sideanouncement = Anouncement::paginate(2);
-        return view('pages.about.board_members',['sidedata' => $sideanouncement]);
+        return view('pages.about.board_members',
+        [
+            'sidedata' => $sideanouncement,
+            'mkb' => $mkb,
+            'mmkb' => $mmkb,
+            'mj' => $mj
+
+        ]);
     }
     public function management(){
+        $md = Managment::where('category','MD')->first();
+        $hd = Managment::where('category','HD')->get();
+        $hu =Managment::where('category','HU')->get();
         $sideanouncement = Anouncement::paginate(2);
-        return view('pages.about.menagment',['sidedata' => $sideanouncement]);
+        return view('pages.about.menagment',
+        [
+            'sidedata' => $sideanouncement,
+            'md'=>$md,
+            'hd'=>$hd,
+            'hu'=>$hu
+        ]);
     }
     public function mission(){
         $sideanouncement = Anouncement::paginate(2);
@@ -74,8 +95,9 @@ class WebpageController extends Controller
     }
     // media
     public function photo(){
+        $photo = Photo::all();
         $sideanouncement = Anouncement::paginate(2);
-        return view('pages.media-center.photo',['sidedata' => $sideanouncement]);
+        return view('pages.media-center.photo',['sidedata' => $sideanouncement,'photo'=>$photo]);
     }
     public function video(){
         $sideanouncement = Anouncement::paginate(2);

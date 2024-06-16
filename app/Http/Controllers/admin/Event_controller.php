@@ -38,29 +38,36 @@ class Event_controller extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
+        $validation = $request->validate([
             'title' =>'required',
             'imge' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'date' =>'required',
             'desc' =>'required'
         ]);
 
-        $imageName = rand(1000,1322).'_'.$request->imge->getClientOriginalName();
-        $request->imge->move('uploads',$imageName);
-        $event = Event::create([
-            'title' =>$request->title,
-            'image' => $imageName,
-            'date' => $request->date,
-            'desc' => $request->desc
-        ]);
+        if ($validation) {
+            $imageName = rand(1000,1322).'_'.$request->imge->getClientOriginalName();
+            $request->imge->move('uploads',$imageName);
+            $event = Event::create([
+                'title' =>$request->title,
+                'image' => $imageName,
+                'date' => $request->date,
+                'desc' => $request->desc
+            ]);
 
-        if($event){
-            toast('event added successfully','success');
-            return redirect()->back();
+            if($event){
+                toast('event added successfully','success');
+                return redirect()->back();
+            }else {
+                toast('fail to add event','error');
+                return redirect()->back();
+            }
         }else {
-            toast('fail to add event','error');
+            toast('All field must have values','error');
             return redirect()->back();
         }
+
+
     }
 
     /**
@@ -84,6 +91,13 @@ class Event_controller extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $request->validate([
+            'title' =>'required',
+            'imge' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'date' =>'required',
+            'desc' =>'required'
+        ]);
+
         $eventy = Event::findOrFail($id);
 
         $destination = 'uploads/'.$eventy->image;
@@ -93,6 +107,7 @@ class Event_controller extends Controller
         $imageName = rand(1000,1322).'_'.$request->imge->getClientOriginalName();
             $request->imge->move('uploads',$imageName);
             $eventy->update([
+                'title' =>$request->title,
                 'image' => $imageName,
                 'date' => $request->date,
                 'desc' => $request->desc

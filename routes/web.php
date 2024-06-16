@@ -5,11 +5,17 @@ use App\Http\Controllers\admin\admin_controller;
 use App\Http\Controllers\admin\Anouncement_controller;
 use App\Http\Controllers\admin\Event_controller;
 use App\Http\Controllers\admin\Request_Service_Controller;
+use App\Http\Controllers\BoardController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\ManagmentController;
+use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\WebpageController;
 use App\Livewire\Admin\PressRelease;
 use Illuminate\Support\Facades\Route;
+
+
+
 
 
 /*
@@ -40,6 +46,8 @@ Route::group(['middleware' => ['auth','role:super-admin|admin']], function() {
     Route::get('useredit/{userId}', [App\Http\Controllers\UserController::class, 'edit']);
     Route::get('users/{userId}/delete', [App\Http\Controllers\UserController::class, 'destroy']);
 
+    Route::get('contacts', [App\Http\Controllers\ContactUsController::class, 'index']);
+
 });
 Route::get('logout', [LoginController::class,'logout']);
 
@@ -51,7 +59,7 @@ Route::get('/login', function () {
     return view('livewire.login-live');
 });
 Route::get('/background', [WebpageController::class,'background']);
-Route::get('/board', [WebpageController::class,'board']);
+Route::get('/board_members', [WebpageController::class,'board']);
 Route::get('/menagement', [WebpageController::class,'management']);
 Route::get('/mission', [WebpageController::class,'mission']);
 Route::get('/orgStru', [WebpageController::class,'orgStru']);
@@ -63,7 +71,7 @@ Route::get('/kateshi', [WebpageController::class,'kateshi']);
 Route::get('/magugu', [WebpageController::class,'magugu']);
 Route::get('/contact_us', [WebpageController::class,'contact_us']);
 Route::get('/faqs', [WebpageController::class,'faqs']);
-Route::get('/photo', [WebpageController::class,'photo']);
+Route::get('/photo_web', [WebpageController::class,'photo']);
 Route::get('/video', [WebpageController::class,'video']);
 Route::get('/pressrelease', [WebpageController::class,'press']);
 Route::get('/uploads/pressrelease/{file}',[PressRelease::class,'showPdf']);
@@ -125,7 +133,9 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/update_event/{id}',[Event_controller::class,'update']);
     Route::delete('/event_delete/{id}',[Event_controller::class,'destroy']);
 
-    Route::get('/press',[PressRelease::class,'render']);
+    Route::get('/press',function (){
+        return view('admin.press.press_release');
+    });
     Route::post('/upload',[PressRelease::class,'upload']);
     Route::get('/showPdf',[PressRelease::class,'showPdf']);
 
@@ -135,6 +145,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/editOnprocess/{id}',[Request_Service_Controller::class,'editOnprocess']);
     Route::get('/rollbackOnprocess/{id}',[Request_Service_Controller::class,'rollback']);
 
+    Route::resource('managments', ManagmentController::class);
+    Route::get('/administration',[ManagmentController::class,'index']);
+
+    Route::resource('boards', BoardController::class);
+    Route::get('/board',[BoardController::class,'index']);
+
+    Route::resource('photos', PhotoController::class);
+    Route::get('/photo',[PhotoController::class,'index']);
 
 
 

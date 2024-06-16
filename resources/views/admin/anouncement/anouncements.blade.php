@@ -21,17 +21,17 @@
         @method('post') -->
           <div class="form-group">
             <label for="title" class="col-form-label">Title:</label>
-            <input type="text" class="form-control" id="title" name="title" value="{{ old('title')}}">
+            <input type="text" class="form-control" id="title" name="title" value="{{ old('title')}}" @required(true)>
             <span class="text-danger">@error('title') {{ $message }}@enderror</span>
           </div>
           <div class="form-group">
             <label for="date" class="col-form-label">Date posted:</label>
-            <input type="date" class="form-control" id="date" name="date" value="{{ old('date')}}">
+            <input type="date" class="form-control" id="date" name="date" value="{{ old('date')}}" @required(true)>
             <span class="text-danger">@error('date') {{ $message }}@enderror</span>
           </div>
           <div class="form-group">
             <label for="content" class="col-form-label">Content:</label>
-            <textarea class="form-control" id="content" name="content"></textarea>
+            <textarea class="form-control" id="content" name="content" @required(true)></textarea>
           </div>
         </form>
       </div>

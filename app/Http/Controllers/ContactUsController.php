@@ -15,7 +15,7 @@ class ContactUsController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.contactUs.admin_contact_us');
     }
 
     /**

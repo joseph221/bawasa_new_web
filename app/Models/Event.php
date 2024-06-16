@@ -12,4 +12,13 @@ class Event extends Model
     protected $table = "events";
 
     protected $fillable = ['title','image','date','desc'];
+
+    public function scopeSearch($query,$term){
+        $term = "%$term%";
+        $query->where(function($query) use ($term){
+            $query->where('title','like',$term)
+            ->orWhere('date','like',$term)
+            ->orWhere('desc','like',$term);
+        } );
+    }
 }

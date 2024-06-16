@@ -125,7 +125,7 @@
                                     <li><a class="dropdown-item"
                                             href="/mission">{{ __('messages.Mission_Vision')}}</a>
                                     </li>
-                                    <li><a class="dropdown-item" href="board">{{ __('messages.Board_Members')}}</a>
+                                    <li><a class="dropdown-item" href="board_members">{{ __('messages.Board_Members')}}</a>
                                     </li>
                                     <li><a class="dropdown-item"
                                             href="/menagement">{{ __('messages.Management')}}</a>
@@ -174,7 +174,7 @@
                                     </li>
                                     <li><a class="dropdown-item" href="/video">{{ __('messages.Video')}}</a>
                                     </li>
-                                    <li><a class="dropdown-item" href="/photo">{{ __('messages.Photo')}}</a>
+                                    <li><a class="dropdown-item" href="/photo_web">{{ __('messages.Photo')}}</a>
                                     </li>
                                     <li><a class="dropdown-item" href="/speech">{{ __('messages.Speeches')}}</a>
                                     </li>

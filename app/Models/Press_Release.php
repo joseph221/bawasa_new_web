@@ -13,4 +13,13 @@ class Press_Release extends Model
         'description',
         'file_name',
     ];
+
+    public function scopeSearch($query,$term){
+        $term = "%$term%";
+        $query->where(function($query) use ($term){
+            $query->where('description','like',$term)
+            ->orWhere('file_name','like',$term);
+
+        } );
+    }
 }

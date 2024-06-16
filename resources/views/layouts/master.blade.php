@@ -56,23 +56,24 @@
             </a>
           </li>
           <li>
-            <a href="./icons.html">
+            <a href="./contacts">
               <i class="now-ui-icons education_atom"></i>
               <p>Contact Us</p>
             </a>
           </li>
-          {{-- <li>
-            <a href="./map.html">
+          <li class="{{ 'photo' == request()->path() ? 'active' : ''}}">
+            <a href="/photo">
               <i class="now-ui-icons location_map-big"></i>
-              <p>Maps</p>
+              <p>Photo</p>
             </a>
-          </li> --}}
-          {{-- <li class="{{ 'notification' == request()->path() ? 'active' : ''}}">
-            <a href="">
-              <i class="now-ui-icons ui-1_bell-53"></i>
-              <p>Notifications</p>
+          </li>
+          <li class="{{ 'board' == request()->path() ? 'active' : ''}}">
+            <a href="/board">
+              <i class="now-ui-icons users_single-02"></i>
+              <p>Board</p>
             </a>
-          </li> --}}
+          </li>
+
           @can('view user')
             <li class="{{ 'users' == request()->path() ? 'active' : ''}}">
                 <a href="../users">
@@ -103,6 +104,13 @@
             <a href="../request_service">
               <i class="now-ui-icons arrows-1_cloud-download-93"></i>
               <p>Connection request</p>
+            </a>
+          </li>
+
+          <li class="{{ 'administration' == request()->path() ? 'active' : ''}}">
+            <a href="../administration">
+              <i class="now-ui-icons arrows-1_cloud-download-93"></i>
+              <p>Administration</p>
             </a>
           </li>
         </ul>
